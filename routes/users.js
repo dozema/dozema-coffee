@@ -15,7 +15,7 @@ router.get("/:userId/edit", isLoggedIn, (req, res) => {
 
   User.findById(userId)
     .then((userDetails) => {
-      res.render("users/edit-profile", userDetails);
+      res.render("users/edit-profile", { user: userDetails });
     })
     .catch((err) => {
       console.log("Error getting user details from DB...", err);
@@ -26,6 +26,7 @@ router.post("/:userId/edit", isLoggedIn, (req, res) => {
   const userId = req.params.userId;
 
   const newDetails = {
+    name: req.body.name,
     email: req.body.email,
     password: req.body.password,
   };
