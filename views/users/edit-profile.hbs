@@ -1,0 +1,16 @@
+<h2>Edit your profile</h2>
+
+<form action="/users/{{id}}/edit" method="post">
+  <label>
+    E-Mail:
+    <input type="text" name="email" value="{{email}}" />
+  </label>
+
+  <label>
+    Password:
+    <input type="text" name="password" />
+  </label>
+
+
+  <button>Save changes</button>
+</form>
