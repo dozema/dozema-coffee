@@ -5,8 +5,8 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
 
 //====== Create route for user profile
-router.get("/user-profile", isLoggedIn, (req, res) => {
-  res.render("users/user-profile", { userInSession: req.session.user });
+router.get("/profile", isLoggedIn, (req, res) => {
+  res.render("users/user-profile", { user: req.session.user });
 });
 
 //====== Create get & post route for user edit

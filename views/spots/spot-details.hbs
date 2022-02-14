@@ -1,1 +1,20 @@
 <h1>Spot-details</h1>
+
+<section>
+  {{#if this.image_url}}
+    <img src="{{this.image_url}}" alt="{{this.name}}" />
+  {{/if}}
+
+  <h1>{{this.title}}</h1>
+  <p>Details: {{this.details}}</p>
+  <p>Description: {{this.description}}</p>
+  <p>Created by: {{this.creator}}</p>
+  <p>Rating: {{this.rating}}</p>
+  <p>Address: {{this.address}}</p>
+  <p>Average Price: {{this.averagePrice}}</p>
+  <p>Opening Hours: {{this.openingHours}}</p>
+  <br />
+  <a href="/spots/{{this._id}}/edit">Edit</a>
+  <a href="/spots/{{this._id}}/delete">Delete</a>
+
+</section>

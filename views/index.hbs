@@ -1,16 +1,21 @@
 <section>
   <h1>Our spots!</h1>
 
-  <div>
-{{#each spotsFromDb}}
+  {{#each spots}}
+    <section>
+      {{#if this.image_url}}
+        <img src="{{this.image_url}}" alt="{{this.name}}" />
+      {{/if}}
 
-{{> spotsPartial this}}
+      <h1>{{this.title}}</h1>
+      <p>{{this.details}}</p>
+      <p>{{this.rating}}</p>
 
-<a href="/spots/{{this._id}}">More details</a> 
-{{/each}}
-</div>
+    </section>
 
-<a href="/spots/create">Add a spot!</a>
+    <a href="/spots/{{this._id}}">More details</a>
+  {{/each}}
 
+  <a href="/spots/create">Add a spot!</a>
 
 </section>

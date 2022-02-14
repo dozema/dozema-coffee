@@ -13,22 +13,22 @@
       <img src="" />
 
       <nav>
+        <a href="/">Home</a>
+        |
         <a href="/spots">Spots</a>
         |
         <a href="/spots/create">Add a new spot!</a>
         |
-        <a href="/register">Register</a>
-        |
-        <a href="/login">Login</a>
-        |
-        <a href="/user-profile">User Profile</a>
+        <a href="/users/profile">User Profile</a>
         <br />
-        {{#if userInSession}}
+        {{#if user}}
           <form id="logout-form" action="/logout" method="POST">
             <button>Logout</button>
           </form>
         {{else}}
-          <p>Log in now!</p>
+          <button><a href="/signup">Sign Up</a></button>
+          |
+          <button><a href="/login">Login</a></button>
         {{/if}}
       </nav>
     </section>
