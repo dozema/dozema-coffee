@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const User = require("../models/User.model");
 const Spot = require("../models/Spot.model");
 
-const MONGO_URI = process.env.MONGODB_URI || "mongodb://0.0.0.0/dozema-coffee";
+const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/dozema-coffee";
 
 mongoose
   .connect(MONGO_URI)
@@ -15,8 +15,6 @@ mongoose
     console.error("Error connecting to mongo: ", err);
   });
 
-// Book.collection.drop();  // Warning, drops book collection :)
-// Author.collection.drop();  // Warning, drops author collection :)
 
 const spots = [
   {
@@ -78,15 +76,15 @@ const users = [
   },
 ];
 
-const booksPromise = Spot.create(spots);
+const spotsPromise = Spot.create(spots);
 const usersPromise = User.create(users);
 
-Promise.all([booksPromise, usersPromise])
+Promise.all([spotsPromise, usersPromise])
   .then((result) => {
-    const booksCreated = result[0];
+    const spotsCreated = result[0];
     const usersCreated = result[1];
 
-    console.log(`Number of spots created... ${booksCreated.length} `);
+    console.log(`Number of spots created... ${spotsCreated.length} `);
     console.log(`Number of users created... ${usersCreated.length} `);
 
     // Once created, close the DB connection
