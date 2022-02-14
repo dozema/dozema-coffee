@@ -42,10 +42,10 @@ const authRoutes = require("./routes/auth");
 app.use("/", authRoutes);
 
 const users = require("./routes/users");
-app.use("/users", isLoggedIn, users);
+app.use("/users", users);
 
 const spots = require("./routes/spots");
-app.use("/spots", isLoggedIn, spots);
+app.use("/spots", spots);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

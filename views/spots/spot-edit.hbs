@@ -1,1 +1,40 @@
 <h1>Spot-edit</h1>
+
+<form action="/spots/{{_id}}/edit" method="post">
+  <label>
+    Title:
+    <input type="text" name="title" value="{{title}}" />
+  </label>
+
+  <label>
+    Details:
+    <input type="text" name="details" value="{{details}}" />
+  </label>
+
+  <label>
+    Description:
+    <textarea name="description" cols="30" rows="4">{{description}} </textarea>
+  </label>
+  <label>
+    Created By:
+    <input type="text" name="creator" value="{{creator}}" />
+  </label>
+  <label>
+    Rating:
+    <input type="number" name="rating" min="1" max="5" value="{{rating}}" />
+  </label>
+  <label>
+    Address:
+    <input type="text" name="address" value="{{address}}" />
+  </label>
+  <label>
+    Average price:
+    <input type="number" name="averagePrice" value="{{averagePrice}}" />
+  </label>
+  <label>
+    Opening Hours:
+    <input type="text" name="openingHours" value="{{openingHours}}" />
+  </label>
+
+  <button type="submit"> Create </button>
+</form>
