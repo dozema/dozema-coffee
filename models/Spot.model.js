@@ -6,11 +6,14 @@ const spotSchema = new Schema(
     details: String,
     description: String,
     creator: { type: Schema.Types.ObjectId, ref: "User" },
-    rating: Number,
+    rating: {
+      type: Number,
+      min: 1,
+      max: 5,
+    },
     address: {
       street: String,
-      number: Number,
-      postcode: Number,
+      postcode: String,
       city: String,
     },
     averagePrice: Number,

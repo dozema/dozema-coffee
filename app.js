@@ -31,8 +31,8 @@ app.use("/", index);
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
 
-const users = require("./routes/users");
-app.use("/users", users);
+// const users = require("./routes/users");
+// app.use("/users", users);
 
 const spots = require("./routes/spots");
 app.use("/spots", spots);
