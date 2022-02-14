@@ -7,9 +7,11 @@
 
   <h1>{{this.title}}</h1>
   <p>Details: {{this.details}}</p>
+  {{#if session.user}}
   <p>Description: {{this.description}}</p>
-  <p>Created by: {{this.creator}}</p>
+  <p>Created by: {{this.creator.name}}</p>
   <p>Rating: {{this.rating}}</p>
+   {{/if}}
   <p>Address: {{this.address}}</p>
   <p>Average Price: {{this.averagePrice}}</p>
   <p>Opening Hours: {{this.openingHours}}</p>

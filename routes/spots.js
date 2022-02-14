@@ -5,6 +5,7 @@ const Spot = require("../models/Spot.model");
 
 router.get("/", (req, res, next) => {
   Spot.find()
+    .populate("creator")
     .then((spotsFromDB) => {
       res.render("spots/spots-list", { spots: spotsFromDB });
     })
@@ -13,16 +14,16 @@ router.get("/", (req, res, next) => {
     });
 });
 
-router.get("/create", (req, res, next) => {
+router.get("/create",isLoggedIn, (req, res, next) => {
   res.render("spots/spot-create");
 });
 
-router.post("/create", (req, res, next) => {
+router.post("/create",isLoggedIn, (req, res, next) => {
   const newSpot = {
     title: req.body.title,
     details: req.body.details,
     description: req.body.description,
-    creator: req.body.user,
+    creator: req.session.user,
     rating: req.body.rating,
     address: req.body.address,
     averagePrice: req.body.averagePrice,
@@ -30,7 +31,7 @@ router.post("/create", (req, res, next) => {
   };
   Spot.create(newSpot)
     .then(() => {
-      res.redirect("/spots/spots-list");
+      res.redirect("/spots");
     })
     .catch((err) => {
       console.log("Error creating spot...", err);
@@ -39,6 +40,7 @@ router.post("/create", (req, res, next) => {
 
 router.get("/:spotId/spot-details", (req, res, next) => {
   Spot.findById(req.params.spotId)
+    .populate("creator")
     .then((spotDetails) => {
       res.render("spots/spot-details", spotDetails);
     })
@@ -47,7 +49,7 @@ router.get("/:spotId/spot-details", (req, res, next) => {
     });
 });
 
-router.get("/:spotId/edit", (req, res, next) => {
+router.get("/:spotId/edit", isLoggedIn, (req, res, next) => {
   Spot.findById(req.params.spotId)
     .populate("creator")
     .then((spotToEdit) => {
@@ -58,13 +60,13 @@ router.get("/:spotId/edit", (req, res, next) => {
     });
 });
 
-router.post("/:spotId/edit", (req, res, next) => {
+router.post("/:spotId/edit",isLoggedIn, (req, res, next) => {
   const { spotId } = req.params;
   const spot = {
     title: req.body.title,
     details: req.body.details,
     description: req.body.description,
-    creator: req.body.user,
+    creator: req.session.user,
     rating: req.body.rating,
     address: req.body.address,
     averagePrice: req.body.averagePrice,
@@ -77,7 +79,7 @@ router.post("/:spotId/edit", (req, res, next) => {
     });
 });
 
-router.post("/:spotId/delete", (req, res, next) => {
+router.post("/:spotId/delete",isLoggedIn, (req, res, next) => {
   Spot.findByIdAndDelete(req.params.spotId)
     .then(() => {
       res.redirect("/spots");
