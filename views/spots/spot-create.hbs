@@ -1,1 +1,40 @@
 <h1>Spot-create</h1>
+
+<form action="/spots/create" method="post">
+  <label>
+    Title:
+    <input type="text" name="title" />
+  </label>
+
+  <label>
+    Details:
+    <input type="text" name="details" />
+  </label>
+
+  <label>
+    Description:
+    <textarea name="description" cols="30" rows="4"> </textarea>
+  </label>
+  <label>
+    Created By:
+    <input type="text" name="creator" />
+  </label>
+  <label>
+    Rating:
+    <input type="number" name="rating" min="1" max="5" />
+  </label>
+  <label>
+    Address:
+    <input type="text" name="address" />
+  </label>
+  <label>
+    Average price:
+    <input type="number" name="averagePrice" />
+  </label>
+  <label>
+    Opening Hours:
+    <input type="number" name="openingHours" />
+  </label>
+
+  <button type="submit"> Create </button>
+</form>
