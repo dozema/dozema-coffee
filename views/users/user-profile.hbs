@@ -1,11 +1,11 @@
 <h2>User profile</h2>
 
 <section class="user-profile">
-  <h2>Hello, {{this.email}}</h2>
+  <h2>Hello, {{user.name}}</h2>
 
-  <button><a href="/users/{{this._id}}/edit">Edit profile</a></button> 
- 
-  <form action="/users/{{this._id}}/delete" method="POST">
+  <button><a href="/users/{{user._id}}/edit">Edit profile</a></button>
+
+  <form action="/users/{{user._id}}/delete" method="POST">
     <button>
       Delete profile
     </button>
