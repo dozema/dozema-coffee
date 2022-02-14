@@ -1,2 +1,16 @@
-<h1>{{title}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<section>
+  <h1>Our spots!</h1>
+
+  <div>
+{{#each spotsFromDb}}
+
+{{> spotsPartial this}}
+
+<a href="/spots/{{this._id}}">More details</a> 
+{{/each}}
+</div>
+
+<a href="/spots/create">Add a spot!</a>
+
+
+</section>
