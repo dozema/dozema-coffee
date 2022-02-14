@@ -19,7 +19,8 @@ const app = express();
 require("./config")(app);
 
 const projectName = "dozema-coffee";
-const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
+const capitalized = (string) =>
+  string[0].toUpperCase() + string.slice(1).toLowerCase();
 
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
@@ -29,6 +30,12 @@ app.use("/", index);
 
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
+
+const users = require("./routes/users");
+app.use("/users", users);
+
+const spots = require("./routes/spots");
+app.use("/spots", spots);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
