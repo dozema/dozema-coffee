@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const User = require("../models/User.model");
 const Spot = require("../models/Spot.model");
 
-const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/dozema-coffee";
+const MONGO_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/dozema-coffee";
 
 mongoose
   .connect(MONGO_URI)
@@ -14,7 +15,6 @@ mongoose
   .catch((err) => {
     console.error("Error connecting to mongo: ", err);
   });
-
 
 const spots = [
   {
@@ -63,14 +63,17 @@ const spots = [
 
 const users = [
   {
+    name: "Marian",
     email: "mcg-511@hotmail.com",
     password: "marian1234",
   },
   {
+    name: "Zena",
     email: "zta.bos@gmail.com",
     password: "zena1234",
   },
   {
+    name: "Doan",
     email: "doan7tran@gmail.com",
     password: "doan1234",
   },

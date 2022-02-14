@@ -21,7 +21,7 @@
         |
         <a href="/users/profile">User Profile</a>
         <br />
-        {{#if user}}
+        {{#if session.user}}
           <form id="logout-form" action="/logout" method="POST">
             <button>Logout</button>
           </form>
