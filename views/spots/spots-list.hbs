@@ -1,8 +1,9 @@
 <div>
 
-{{> spotsDetailsPartial this}}
+{{#each spots }}
+{{!-- {{> spotsDetailsPartial this}} --}}
 
  <a href="/spots/{{this._id}}">More details</a>
- 
+ {{/each}}
 
 </div>
