@@ -8,13 +8,20 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 //====== Create route for user profile
 router.get("/profile", isLoggedIn, (req, res) => {
   const userId = req.session.user._id;
+  let user;
 
-  Spot.find({ creator: userId })
-    .then((spotsFromDB) => {
-      console.log(spotsFromDB);
-      res.render("users/user-profile", { spots: spotsFromDB });
+  User.findById(userId)
+    .populate("favoriteSpots")
+    .then((userFromDB) => {
+      user = userFromDB;
+      return Spot.find({ creator: userId });
     })
-
+    .then((spotsFromDB) => {
+      res.render("users/user-profile", {
+        spots: spotsFromDB,
+        user: user,
+      });
+    })
     .catch((err) => {
       console.log("Error getting users/spots from DB...", err);
     });
