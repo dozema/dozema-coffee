@@ -29,6 +29,10 @@ router.post("/create", isLoggedIn, (req, res, next) => {
     creator: req.session.user,
     rating: req.body.rating,
     address: req.body.address,
+    location: {
+      type: "Point",
+      coordinates: [req.body.longitude, req.body.latitude],
+    },
     averagePrice: req.body.averagePrice,
     openingHours: req.body.openingHours,
   };
@@ -44,6 +48,7 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 router.get("/:spotId/spot-details", (req, res, next) => {
   Spot.findById(req.params.spotId)
     .populate("creator")
+
     .then((spotDetails) => {
       res.render("spots/spot-details", spotDetails);
     })
@@ -93,13 +98,12 @@ router.post("/:spotId/delete", isLoggedIn, isCreator, (req, res, next) => {
 });
 
 //===== Create get.route for user favorite spots
-router.get("/:spotId/favorite", isLoggedIn, (req,res, next) => {
+router.get("/:spotId/favorite", isLoggedIn, (req, res, next) => {
   const spotId = req.params.spotId;
 
-  User.findByIdAndUpdate(
-    req.session.user._id,
-    { $push: { favoriteSpots: spotId } }
-  )
+  User.findByIdAndUpdate(req.session.user._id, {
+    $push: { favoriteSpots: spotId },
+  })
     .then(() => {
       res.redirect("/:spotId");
     })
@@ -107,6 +111,5 @@ router.get("/:spotId/favorite", isLoggedIn, (req,res, next) => {
       console.log("Error updating favorite spots...", err);
     });
 });
-
 
 module.exports = router;
