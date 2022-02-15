@@ -11,7 +11,7 @@ h1 {
   color: 15px;
 }
 
-#map {
+.map {
   height: 300px;
   width: 300px;
 }
