@@ -81,7 +81,7 @@ router.post("/:spotId/edit", isLoggedIn, isCreator, (req, res, next) => {
     openingHours: req.body.openingHours,
   };
   Spot.findByIdAndUpdate(spotId, spot)
-    .then(() => res.redirect(`/spot/${spotId}`))
+    .then(() => res.redirect(`/spots/${spotId}/spot-details`))
     .catch((err) => {
       console.log("Error editing spotdetails from DB...", err);
     });
@@ -105,7 +105,7 @@ router.get("/:spotId/favorite", isLoggedIn, (req, res, next) => {
     $push: { favoriteSpots: spotId },
   })
     .then(() => {
-      res.redirect("/:spotId");
+      res.redirect(`/spots/${spotId}/spot-details`);
     })
     .catch((err) => {
       console.log("Error updating favorite spots...", err);
