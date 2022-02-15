@@ -3,7 +3,7 @@
 <section class="user-profile">
   <h2>Hello, {{user.name}}</h2>
 
-<hr>
+  <hr />
   <section class="my-spots">
     <h3>Spots created:</h3>
     <ul>
@@ -12,9 +12,9 @@
       {{/each}}
     </ul>
   </section>
-  <hr>
+  <hr />
 
-    <section class="my-fav-spots">
+  <section class="my-fav-spots">
     <h3>Spots I like:</h3>
     <ul>
       {{#each user.favoriteSpots}}
@@ -22,7 +22,6 @@
       {{/each}}
     </ul>
   </section>
-
 
   <button><a href="/users/{{user._id}}/edit">Edit profile</a></button>
 
