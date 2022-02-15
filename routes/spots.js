@@ -3,6 +3,7 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const Spot = require("../models/Spot.model");
 const isCreator = require("../middleware/isCreator");
+const req = require("express/lib/request");
 
 router.get("/", (req, res, next) => {
   Spot.find()
@@ -89,5 +90,10 @@ router.post("/:spotId/delete", isLoggedIn, isCreator, (req, res, next) => {
       console.log("Error deleting spotdetails from DB...", err);
     });
 });
+
+
+
+
+
 
 module.exports = router;
