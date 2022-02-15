@@ -3,6 +3,15 @@
 <section class="user-profile">
   <h2>Hello, {{user.name}}</h2>
 
+  <section class="my-spots">
+    <h3>Spots created:</h3>
+    <ul>
+      {{#each spots}}
+        <li>{{this.title}}</li>
+      {{/each}}
+    </ul>
+  </section>
+
   <button><a href="/users/{{user._id}}/edit">Edit profile</a></button>
 
   <form action="/users/{{user._id}}/delete" method="POST">
