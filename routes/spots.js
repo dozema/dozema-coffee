@@ -2,6 +2,7 @@ const router = require("express").Router();
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const Spot = require("../models/Spot.model");
+const isCreator = require("../middleware/isCreator");
 
 router.get("/", (req, res, next) => {
   Spot.find()
@@ -14,11 +15,11 @@ router.get("/", (req, res, next) => {
     });
 });
 
-router.get("/create",isLoggedIn, (req, res, next) => {
+router.get("/create", isLoggedIn, (req, res, next) => {
   res.render("spots/spot-create");
 });
 
-router.post("/create",isLoggedIn, (req, res, next) => {
+router.post("/create", isLoggedIn, (req, res, next) => {
   const newSpot = {
     title: req.body.title,
     details: req.body.details,
@@ -49,7 +50,7 @@ router.get("/:spotId/spot-details", (req, res, next) => {
     });
 });
 
-router.get("/:spotId/edit", isLoggedIn, (req, res, next) => {
+router.get("/:spotId/edit", isLoggedIn, isCreator, (req, res, next) => {
   Spot.findById(req.params.spotId)
     .populate("creator")
     .then((spotToEdit) => {
@@ -60,7 +61,7 @@ router.get("/:spotId/edit", isLoggedIn, (req, res, next) => {
     });
 });
 
-router.post("/:spotId/edit",isLoggedIn, (req, res, next) => {
+router.post("/:spotId/edit", isLoggedIn, isCreator, (req, res, next) => {
   const { spotId } = req.params;
   const spot = {
     title: req.body.title,
@@ -79,7 +80,7 @@ router.post("/:spotId/edit",isLoggedIn, (req, res, next) => {
     });
 });
 
-router.post("/:spotId/delete",isLoggedIn, (req, res, next) => {
+router.post("/:spotId/delete", isLoggedIn, isCreator, (req, res, next) => {
   Spot.findByIdAndDelete(req.params.spotId)
     .then(() => {
       res.redirect("/spots");
