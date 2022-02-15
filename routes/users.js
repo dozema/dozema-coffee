@@ -1,12 +1,23 @@
 const router = require("express").Router();
 const mongoose = require("mongoose");
 const User = require("../models/User.model");
+const Spot = require("../models/Spot.model");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
 
 //====== Create route for user profile
 router.get("/profile", isLoggedIn, (req, res) => {
-  res.render("users/user-profile", { user: req.session.user });
+  const userId = req.session.user._id;
+
+  Spot.find({ creator: userId })
+    .then((spotsFromDB) => {
+      console.log(spotsFromDB);
+      res.render("users/user-profile", { spots: spotsFromDB });
+    })
+
+    .catch((err) => {
+      console.log("Error getting users/spots from DB...", err);
+    });
 });
 
 //====== Create get & post route for user edit
