@@ -2,6 +2,7 @@ const router = require("express").Router();
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const Spot = require("../models/Spot.model");
+const User = require("../models/User.model");
 const isCreator = require("../middleware/isCreator");
 const req = require("express/lib/request");
 
@@ -91,9 +92,21 @@ router.post("/:spotId/delete", isLoggedIn, isCreator, (req, res, next) => {
     });
 });
 
+//===== Create get.route for user favorite spots
+router.get("/:spotId/favorite", isLoggedIn, (req,res, next) => {
+  const spotId = req.params.spotId;
 
-
-
+  User.findByIdAndUpdate(
+    req.session.user._id,
+    { $push: { favoriteSpots: spotId } }
+  )
+    .then(() => {
+      res.redirect("/:spotId");
+    })
+    .catch((err) => {
+      console.log("Error updating favorite spots...", err);
+    });
+});
 
 
 module.exports = router;
