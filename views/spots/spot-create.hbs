@@ -1,6 +1,6 @@
 <h1>Spot-create</h1>
 
-<form action="/spots/create" method="post">
+<form action="/spots/create" method="post" enctype="multipart/form-data">
   <label>
     Title:
     <input type="text" name="title" />
@@ -36,6 +36,10 @@
   <label>
     Opening Hours:
     <input type="number" name="openingHours" />
+  </label>
+  <label>
+    Picture:
+    <input type="file" name="spotPicture" />
   </label>
 
   <button type="submit"> Create </button>

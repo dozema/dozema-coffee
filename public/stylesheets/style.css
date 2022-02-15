@@ -15,3 +15,7 @@ h1 {
   height: 300px;
   width: 300px;
 }
+
+img {
+  max-width: 100px;
+}

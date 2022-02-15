@@ -5,6 +5,7 @@ const Spot = require("../models/Spot.model");
 const User = require("../models/User.model");
 const isCreator = require("../middleware/isCreator");
 const req = require("express/lib/request");
+const fileUploader = require("../config/cloudinary.config");
 
 router.get("/", (req, res, next) => {
   Spot.find()
@@ -21,29 +22,35 @@ router.get("/create", isLoggedIn, (req, res, next) => {
   res.render("spots/spot-create");
 });
 
-router.post("/create", isLoggedIn, (req, res, next) => {
-  const newSpot = {
-    title: req.body.title,
-    details: req.body.details,
-    description: req.body.description,
-    creator: req.session.user,
-    rating: req.body.rating,
-    address: req.body.address,
-    location: {
-      type: "Point",
-      coordinates: [req.body.longitude, req.body.latitude],
-    },
-    averagePrice: req.body.averagePrice,
-    openingHours: req.body.openingHours,
-  };
-  Spot.create(newSpot)
-    .then(() => {
-      res.redirect("/spots");
-    })
-    .catch((err) => {
-      console.log("Error creating spot...", err);
-    });
-});
+router.post(
+  "/create",
+  isLoggedIn,
+  fileUploader.single("spotPicture"),
+  (req, res, next) => {
+    const newSpot = {
+      title: req.body.title,
+      details: req.body.details,
+      description: req.body.description,
+      creator: req.session.user,
+      rating: req.body.rating,
+      address: req.body.address,
+      location: {
+        type: "Point",
+        coordinates: [req.body.longitude, req.body.latitude],
+      },
+      averagePrice: req.body.averagePrice,
+      openingHours: req.body.openingHours,
+      imageUrl: req.file.path,
+    };
+    Spot.create(newSpot)
+      .then(() => {
+        res.redirect("/spots");
+      })
+      .catch((err) => {
+        console.log("Error creating spot...", err);
+      });
+  }
+);
 
 router.get("/:spotId/spot-details", (req, res, next) => {
   Spot.findById(req.params.spotId)
