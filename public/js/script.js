@@ -10,20 +10,20 @@ window.addEventListener("load", () => {
   console.log(spotLocation.coordinates);
 
   const location = {
-    lat: spotLocation.coordinates[0],
-    lng: spotLocation.coordinates[1],
+    lat: spotLocation.coordinates[1],
+    lng: spotLocation.coordinates[0],
   };
   // Initialize the map
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 5,
+    zoom: 13,
     center: location,
   });
 
   // Add a marker for Spot
   const marker = new google.maps.Marker({
   position: {
-    lat: spotLocation.coordinates[0],
-    lng: spotLocation.coordinates[1],
+    lat: spotLocation.coordinates[1],
+    lng: spotLocation.coordinates[0],
   },
   map: map,
   title: `${spotLocation}`

@@ -20,9 +20,6 @@ const app = express();
 require("./config")(app);
 //require("./config/session.config")(app);
 
-const isLoggedIn = require("./middleware/isLoggedIn");
-const isLoggedOut = require("./middleware/isLoggedOut");
-
 const projectName = "dozema-coffee";
 const capitalized = (string) =>
   string[0].toUpperCase() + string.slice(1).toLowerCase();
