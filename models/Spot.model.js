@@ -16,17 +16,18 @@ const spotSchema = new Schema(
       postcode: String,
       city: String,
     },
-    location: { 
+    location: {
       type: { type: String },
-      coordinates: [Number], 
+      coordinates: [Number],
     },
     averagePrice: Number,
     openingHours: String,
+    imageUrl: String,
   },
   {
     timestamps: true,
   }
 );
 
-spotSchema.index({location: '2dsphere'});
+spotSchema.index({ location: "2dsphere" });
 module.exports = model("Spot", spotSchema);

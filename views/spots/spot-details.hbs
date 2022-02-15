@@ -1,9 +1,7 @@
 <h1>Spot-details</h1>
 
 <section>
-  {{#if this.image_url}}
-    <img src="{{this.image_url}}" alt="{{this.name}}" />
-  {{/if}}
+  <img src="{{this.imageUrl}}" alt="{{this.title}}" />
 
   <h1>{{this.title}}</h1>
   <p>Details: {{this.details}}</p>
@@ -24,10 +22,8 @@
 </section>
 
 <script>
-  var spotLocation =  {{{this.location}}};
-  var spotTitle = '{{{this.title}}}';
+  var spotLocation =
+  {{{this.location}}}; var spotTitle = '{{{this.title}}}';
 </script>
 
-
-
-<div id="map" class="map">Location</div>
+<div id="map">Location</div>
