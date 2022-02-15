@@ -17,6 +17,7 @@ const userSchema = new Schema(
       required: [true, "Password is required."],
     },
     favoriteSpots: [{ type: Schema.Types.ObjectId, ref: "Spot" }],
+    imageUrl: String,
   },
   {
     timestamps: true,

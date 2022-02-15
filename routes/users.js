@@ -4,6 +4,7 @@ const User = require("../models/User.model");
 const Spot = require("../models/Spot.model");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
+const fileUploader = require("../config/cloudinary.config");
 
 //====== Create route for user profile
 router.get("/profile", isLoggedIn, (req, res) => {
@@ -40,23 +41,29 @@ router.get("/:userId/edit", isLoggedIn, (req, res) => {
     });
 });
 
-router.post("/:userId/edit", isLoggedIn, (req, res) => {
-  const userId = req.params.userId;
+router.post(
+  "/:userId/edit",
+  isLoggedIn,
+  fileUploader.single("userPicture"),
+  (req, res) => {
+    const userId = req.params.userId;
 
-  const newDetails = {
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-  };
+    const newDetails = {
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      imageUrl: req.file.path,
+    };
 
-  User.findByIdAndUpdate(userId, newDetails)
-    .then(() => {
-      res.redirect("/users/user-profile");
-    })
-    .catch((err) => {
-      console.log("Error updating user details", err);
-    });
-});
+    User.findByIdAndUpdate(userId, newDetails)
+      .then(() => {
+        res.redirect("/users/user-profile");
+      })
+      .catch((err) => {
+        console.log("Error updating user details", err);
+      });
+  }
+);
 
 //====== Create route for user delete
 router.post("/:userId/delete", isLoggedIn, (req, res) => {
