@@ -16,10 +16,10 @@ const spotSchema = new Schema(
       postcode: String,
       city: String,
     },
-    location: {
-      type: { type: String },
-      coordinates: [Number],
-    },
+    // location: {
+    //   type: { type: String },
+    //   coordinates: [Number],
+    // },
     averagePrice: Number,
     openingHours: String,
     imageUrl: String,
