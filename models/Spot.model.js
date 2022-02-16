@@ -3,7 +3,6 @@ const { Schema, model } = require("mongoose");
 const spotSchema = new Schema(
   {
     title: String,
-    details: String,
     description: String,
     creator: { type: Schema.Types.ObjectId, ref: "User" },
     // address: {
@@ -17,11 +16,23 @@ const spotSchema = new Schema(
     // },
     averagePrice: {
       type: String,
-      enum: ["€", "€€", "€€€"]
+      enum: ["€", "€€", "€€€"],
     },
-  
-    openingHours: String,
-    imageUrl: String,
+    details: {
+      openingHours: String,
+      imageUrl: String,
+      vegan: Boolean,
+      vegetarian: Boolean,
+      glutenFree: Boolean,
+      petFriendly: Boolean,
+      wifi: Boolean,
+      powerStations: Boolean,
+      quiet: Boolean,
+      crowded: Boolean,
+      happyHour: Boolean,
+      liveMusic: Boolean,
+      workDesks: Boolean,
+    },
   },
   {
     timestamps: true,
