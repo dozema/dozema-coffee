@@ -42,19 +42,19 @@ function startMap() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       function (position) {
-        const user_location = {
+        const userLocation = {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
 
         // Center map with user location
-        map.setCenter(user_location);
+        map.setCenter(userLocation);
 
         // Add a marker for your user location
-        const userMarker = new google.maps.Marker({
+        const marker = new google.maps.Marker({
           position: {
-            lat: user_location.lat,
-            lng: user_location.lng,
+            lat: userLocation.lat,
+            lng: userLocation.lng,
           },
           map: map,
           title: "You are here.",
@@ -67,6 +67,27 @@ function startMap() {
   } else {
     console.log("Browser does not support geolocation.");
   }
+  
+  google.maps.event.addListener(map, "click", (event) => {
+    addMarker(event.latLng, map);
+  });
 }
+  // // Adds a marker to the map.
+  // function addMarker(location, map) {
+  //   // Add the marker at the clicked location, and add the next-available label
+  //   // from the array of alphabetical characters.
+  //   new google.maps.Marker({
+  //     position: location,
+  //     label: labels[labelIndex++ % labels.length],
+  //     map: map,
+  //   });
+
+//   // Configure the click listener.
+//   map.addListener("click", (mapsMouseEvent) => {
+//     marker = new google.maps.Marker({
+//       position: mapsMouseEvent.latLng,
+//     });
+//     console.log(mapsMouseEvent.latLng)
+//  }
 
 startMap();
