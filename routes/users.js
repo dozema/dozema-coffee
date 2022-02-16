@@ -52,12 +52,12 @@ router.post(
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
-      imageUrl: req.file.path,
+      imageUrl: req.file?.path,
     };
 
     User.findByIdAndUpdate(userId, newDetails)
       .then(() => {
-        res.redirect("/users/user-profile");
+        res.redirect("/users/profile");
       })
       .catch((err) => {
         console.log("Error updating user details", err);
