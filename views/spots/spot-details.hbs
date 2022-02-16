@@ -10,17 +10,48 @@
     />
   {{/if}}
 
-  <h1>{{this.title}}</h1>
-  <p>Details: {{this.details}}</p>
-  {{#if session.user}}
-    <p>Description: {{this.description}}</p>
-    <p>Created by: {{this.creator.name}}</p>
-    <p>Rating: {{this.rating}}</p>
-  {{/if}}
-  <p>Address: {{this.address}}</p>
-  <p>Average Price: {{this.averagePrice}}</p>
-  <p>Opening Hours: {{this.openingHours}}</p>
-  <br />
+  <h1>{{title}}</h1>
+  {{#if details.vegan}}
+  <li>Vegan</li> 
+  {{/if }}
+  {{#if details.vegetarian}}
+  <li>Vegetarian</li> 
+  {{/if }}
+  {{#if details.glutenFree}}
+  <li>Gluten-free</li> 
+  {{/if }}
+  {{#if details.petFriendly}}
+  <li>Pet-friendly</li> 
+  {{/if }}
+  {{#if details.wifi}}
+  <li>WiFi</li> 
+  {{/if }}
+  {{#if details.powerStations}}
+  <li>Power stations</li> 
+  {{/if }}
+  {{#if details.workDesks}}
+  <li>Work desks</li> 
+  {{/if }}
+  {{#if details.quiet}}
+  <li>Quiet</li> 
+  {{/if }}
+  {{#if details.crowded}}
+  <li>Crowded</li> 
+  {{/if }}
+  {{#if details.happyHour}}
+  <li>Happy hour</li> 
+  {{/if }}
+  {{#if details.liveMusic}}
+  <li>Live music</li> 
+  {{/if }}
+
+  <p>Description: {{description}}</p>
+  <p>Created by: {{creator.name}}</p>
+  <p>Rating: {{rating}}</p>
+  <p>Address: {{address}}</p>
+  <p>Average Price: {{averagePrice}}</p>
+  <p>Opening Hours: {{openingHours}}</p>
+  <br/>
 
   <a href="/spots/{{this._id}}/favorite">Like</a>
   <a href="/spots/{{this._id}}/edit">Edit</a>
