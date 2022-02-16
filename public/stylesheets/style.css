@@ -113,6 +113,13 @@ img {
   background-color: #ab9781;
 }
 
+form {
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
 .btn-secondary {
   color: #c7b198;
   border: 1px solid #c7b198;
