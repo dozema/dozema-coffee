@@ -23,8 +23,8 @@
 
         <div class="navbar-right">
           {{#if session.user}}
-            <a href="/users/profile">Profile</a>
-            <a href="/logout" method="POST" action="/logout">Logout</a>
+            <a href="/users/profile" class="btn-primary">Profile</a>
+            <a href="/logout" method="POST" action="/logout" class="btn-secondary">Logout</a>
           {{else}}
             <a href="/signup" class="btn-secondary">Register</a>
             <a href="/login" class="btn-primary">Login</a>
