@@ -18,7 +18,7 @@
     <h3>Spots created:</h3>
     <ul>
       {{#each spots}}
-        <li>{{this.title}}</li>
+        <a href="/spots/{{this._id}}/spot-details"><li>{{this.title}}</li></a>
       {{/each}}
     </ul>
   </section>
@@ -28,7 +28,7 @@
     <h3>Spots I like:</h3>
     <ul>
       {{#each user.favoriteSpots}}
-        <li>{{this.title}}</li>
+        <a href="/spots/{{this._id}}/spot-details"><li>{{this.title}}</li></a>
       {{/each}}
     </ul>
   </section>
