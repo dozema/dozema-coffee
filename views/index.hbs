@@ -1,26 +1,38 @@
-<section>
-  <h1>Our spots!</h1>
+<div class="index-page">
 
-  {{#each spots}}
-    <section>
-      {{#if imageUrl}}
-        <img src="{{imageUrl}}" alt="{{this.title}}" />
-      {{else}}
-        <img
-          src="https://img.freepik.com/free-vector/cute-pug-dog-drink-coffee-cup-cartoon-animal-logo-coffee-illustration_295036-956.jpg"
-          alt="no image"
-        />
-      {{/if}}
+  <header class="header-content">
+    <h1>Looking for a spot to work?</h1>
+    <h2>find it here.....</h2>
+  </header>
 
-      <h1>{{this.title}}</h1>
-      <p>{{this.details}}</p>
-      <p>{{this.rating}}</p>
+  <section class="spots-listing">
+    <h2>Find your favorite spot</h2>
 
-    </section>
+    {{#each spots}}
+      <section>
+        {{#if imageUrl}}
+          <img src="{{imageUrl}}" alt="{{this.title}}" />
+        {{else}}
+          <img
+            src="https://img.freepik.com/free-vector/cute-pug-dog-drink-coffee-cup-cartoon-animal-logo-coffee-illustration_295036-956.jpg"
+            alt="no image"
+          />
+        {{/if}}
 
-    <a href="/spots/{{this._id}}/spot-details">More details</a>
-  {{/each}}
+        <h1>{{this.title}}</h1>
+        <p>{{this.details}}</p>
+      </section>
 
-  <a href="/spots/create">Add a spot!</a>
+      <a href="/spots/{{this._id}}/spot-details">More details</a>
+      <hr />
+    {{/each}}
 
-</section>
+  </section>
+
+  <section class="call-to-action">
+    <h3>Do you know a nice spot for working?</h3>
+    <button>
+      <a href="/spots/create">Add a spot!</a>
+    </button>
+  </section>
+</div>

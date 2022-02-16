@@ -109,8 +109,9 @@ router.get("/:spotId/favorite", isLoggedIn, (req, res, next) => {
   const spotId = req.params.spotId;
 
   User.findByIdAndUpdate(req.session.user._id, {
-    $push: { favoriteSpots: spotId },
+    $addToSet: { favoriteSpots: spotId, new: true, upsert: true}
   })
+    .exec()
     .then(() => {
       res.redirect(`/spots/${spotId}/spot-details`);
     })
