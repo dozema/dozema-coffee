@@ -3,7 +3,14 @@
 
   {{#each spots}}
     <section>
-      <img src="{{this.imageUrl}}" alt="{{this.title}}" />
+      {{#if imageUrl}}
+        <img src="{{imageUrl}}" alt="{{this.title}}" />
+      {{else}}
+        <img
+          src="https://img.freepik.com/free-vector/cute-pug-dog-drink-coffee-cup-cartoon-animal-logo-coffee-illustration_295036-956.jpg"
+          alt="no image"
+        />
+      {{/if}}
 
       <h1>{{this.title}}</h1>
       <p>{{this.details}}</p>
