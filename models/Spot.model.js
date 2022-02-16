@@ -6,21 +6,20 @@ const spotSchema = new Schema(
     details: String,
     description: String,
     creator: { type: Schema.Types.ObjectId, ref: "User" },
-    rating: {
-      type: Number,
-      min: 1,
-      max: 5,
-    },
-    address: {
-      street: String,
-      postcode: String,
-      city: String,
-    },
+    // address: {
+    //   street: String,
+    //   postcode: String,
+    //   city: String,
+    // },
     // location: {
     //   type: { type: String },
     //   coordinates: [Number],
     // },
-    averagePrice: Number,
+    averagePrice: {
+      type: String,
+      enum: ["€", "€€", "€€€"]
+    },
+  
     openingHours: String,
     imageUrl: String,
   },
