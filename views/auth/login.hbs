@@ -1,40 +1,21 @@
-<div id="form">
-  <h2>Login</h2>
+{{#if errorMessage}}
+  <p class="error">{{errorMessage}}</p>
+{{/if}}
 
-  {{#if errorMessage}}
-    <p class="error">{{errorMessage}}</p>
-  {{/if}}
+<form action="/login" method="POST" class="form-card">
+  <h3>LOGIN</h3>
+  <div class="form-content">
+    <div class="input-field">
+      <input type="email" name="email" placeholder="E-Mail" required />
+    </div>
+    <div class="input-field">
+      <input type="password" name="password" placeholder="Password" required />
+    </div>
+    <a href="/signup">Not registered yet?</a>
+  </div>
 
-  <form action="/login" method="POST">
-
-    <label>
-      Email:
-      <input
-        type="email"
-        name="email"
-        placeholder="rockstar@ironhack.com"
-        required
-      />
-    </label>
-
-    <label>Password:
-      <input type="password" name="password" placeholder="********" required />
-    </label>
-
-    <button type="submit">Login</button>
-
-  </form>
-  <p>
-    If you don't have an account, click here to sign up:
-    <br />
-    <a href="/signup">Register</a>
-
-  </p>
-
-  <p>
-    Do you already have an account?
-    <br />
-    <a href="/login">Login</a>
-
-  </p>
-</div>
+  <div class="action">
+    <button type="submit" class="btn-green">Login</button>
+    <button class="btn-grey"><a href="/signup">Signup</a></button>
+  </div>
+</form>

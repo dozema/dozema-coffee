@@ -1,21 +1,142 @@
+/* Colors:
+creme: #c7b198
+darkcreme: #ab9781
+
+lightgreen: #e9f9f9
+darkgreen: #044343
+
+purple: #634258
+*/
+
+
+@import url("https://fonts.googleapis.com/css?family=Work+Sans");
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  background-color: white;
+  font-family: "Work Sans", Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-  color: #00b7ff;
+  color: #634258;
 }
 
 h1 {
-  color: 15px;
+  font-size: 15px;
 }
 
-.map {
+#map {
   height: 300px;
   width: 300px;
 }
 
 img {
   max-width: 100px;
+}
+
+.main-content {
+  max-width: 90%;
+  margin-top: 3%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #f1f0ed;
+}
+
+.navbar-wrapper {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.navbar-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  float: left;
+}
+
+.navbar-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  float: right;
+}
+
+.navbar-link {
+  vertical-align: middle;
+  text-decoration: none;
+  color: #ab9781;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 4px;
+}
+
+.navbar-link:hover {
+  text-decoration: underline;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #c7b198;
+  vertical-align: middle;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 4px;
+}
+
+.btn-primary:hover {
+  background-color: #ab9781;
+}
+
+.btn-secondary {
+  color: #c7b198;
+  border: 1px solid #c7b198;
+  vertical-align: middle;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 4px;
+}
+
+.btn-secondary:hover {
+  color: #c7b198;
+  background-color: white;
+}
+
+footer {
+  background-color: #c7b198;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-left: 5%;
 }

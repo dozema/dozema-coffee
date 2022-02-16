@@ -6,38 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{title}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
- 
+    <link rel="stylesheet" href="/stylesheets/forms.css" />
+
   </head>
 
   <body>
-    <section class="nav-bar">
-      <img src="" />
+    <div class="navbar">
+      <div class="navbar-wrapper">
 
-      <nav>
-        <a href="/">Home</a>
-        |
-        <a href="/spots">Spots</a>
-        |
-        <a href="/spots/create">Add a new spot!</a>
-        |
-        <a href="/users/profile">User Profile</a>
-        <br />
-        {{#if session.user}}
-          <form id="logout-form" action="/logout" method="POST">
-            <button>Logout</button>
-          </form>
-        {{else}}
-          <button><a href="/signup">Sign Up</a></button>
-          |
-          <button><a href="/login">Login</a></button>
-        {{/if}}
-      </nav>
-    </section>
-    {{{body}}}
+        <div class="navbar-left">
+          <img src="../images/favicon.ico" alt="" height="30px" />
+          <a href="/" class="navbar-link">dozema</a>
+          <a href="/spots" class="navbar-link">Spots</a>
+          <a href="/spots/create" class="navbar-link">Add spot</a>
+        </div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBESkPQYieOnIYDgeryIpZALxce_BORe04"></script>
+        <div class="navbar-right">
+          {{#if session.user}}
+            <a href="/users/profile">Profile</a>
+            <a href="/logout" method="POST" action="/logout">Logout</a>
+          {{else}}
+            <a href="/signup" class="btn-secondary">Register</a>
+            <a href="/login" class="btn-primary">Login</a>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBESkPQYieOnIYDgeryIpZALxce_BORe04"
+    ></script>
     <script src="/js/script.js"></script>
-    
+
+    <main class="main-content">
+      {{{body}}}
+    </main>
+
+    <footer>
+      <p>© 2022 by dozema ☕ </p>
+    </footer>
+
   </body>
 
 </html>
