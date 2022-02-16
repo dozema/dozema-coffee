@@ -8,12 +8,12 @@
   </label>
   <label>
     E-Mail:
-    <input type="text" name="email" value="{{user.email}}" />
+    <input type="email" name="email" value="{{user.email}}" />
   </label>
 
   <label>
     Password:
-    <input type="text" name="password" />
+    <input type="password" name="password" value="{{session.user.password}}" />
   </label>
   <label>
     Picture:

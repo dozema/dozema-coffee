@@ -32,8 +32,8 @@ router.post(
       details: req.body.details,
       description: req.body.description,
       creator: req.session.user,
-      rating: req.body.rating,
-      address: req.body.address,
+      // rating: req.body.rating,
+      // address: req.body.address,
       // location: {
       //   type: "Point",
       //   coordinates: [req.body.longitude, req.body.latitude],
@@ -82,8 +82,8 @@ router.post("/:spotId/edit", isLoggedIn, isCreator, (req, res, next) => {
     details: req.body.details,
     description: req.body.description,
     creator: req.session.user,
-    rating: req.body.rating,
-    address: req.body.address,
+    // rating: req.body.rating,
+    // address: req.body.address,
     averagePrice: req.body.averagePrice,
     openingHours: req.body.openingHours,
   };
