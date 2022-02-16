@@ -18,9 +18,9 @@ const spotSchema = new Schema(
       type: String,
       enum: ["€", "€€", "€€€"],
     },
+    openingHours: String,
+    imageUrl: String,
     details: {
-      openingHours: String,
-      imageUrl: String,
       vegan: Boolean,
       vegetarian: Boolean,
       glutenFree: Boolean,
