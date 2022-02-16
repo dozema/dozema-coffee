@@ -67,20 +67,20 @@ function startMap() {
   } else {
     console.log("Browser does not support geolocation.");
   }
-  
-  google.maps.event.addListener(map, "click", (event) => {
-    addMarker(event.latLng, map);
-  });
+
+  // google.maps.event.addListener(map, "click", (event) => {
+  //   addMarker(event.latLng, map);
+  // });
 }
-  // // Adds a marker to the map.
-  // function addMarker(location, map) {
-  //   // Add the marker at the clicked location, and add the next-available label
-  //   // from the array of alphabetical characters.
-  //   new google.maps.Marker({
-  //     position: location,
-  //     label: labels[labelIndex++ % labels.length],
-  //     map: map,
-  //   });
+// // Adds a marker to the map.
+// function addMarker(location, map) {
+//   // Add the marker at the clicked location, and add the next-available label
+//   // from the array of alphabetical characters.
+//   new google.maps.Marker({
+//     position: location,
+//     label: labels[labelIndex++ % labels.length],
+//     map: map,
+//   });
 
 //   // Configure the click listener.
 //   map.addListener("click", (mapsMouseEvent) => {
