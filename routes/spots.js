@@ -34,13 +34,13 @@ router.post(
       creator: req.session.user,
       rating: req.body.rating,
       address: req.body.address,
-      location: {
-        type: "Point",
-        coordinates: [req.body.longitude, req.body.latitude],
-      },
+      // location: {
+      //   type: "Point",
+      //   coordinates: [req.body.longitude, req.body.latitude],
+      // },
       averagePrice: req.body.averagePrice,
       openingHours: req.body.openingHours,
-      imageUrl: req.file.path,
+      imageUrl: req.file?.path,
     };
     Spot.create(newSpot)
       .then(() => {
