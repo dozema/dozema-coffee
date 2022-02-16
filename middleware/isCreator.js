@@ -1,5 +1,4 @@
 const Spot = require("../models/Spot.model");
-const User = require("../models/User.model");
 
 module.exports = (req, res, next) => {
   Spot.findById(req.params.spotId)
