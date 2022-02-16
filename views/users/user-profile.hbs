@@ -4,7 +4,15 @@
   <h2>Hello, {{user.name}}</h2>
 
   <hr />
-  <img src="{{user.imageUrl}}" alt="{{this.title}}" />
+  {{#if user.imageUrl}}
+    <img src="{{user.imageUrl}}" alt="user picture" />
+  {{else}}
+    <img
+      src="https://i.ebayimg.com/images/g/KIYAAOSwVblcbUkB/s-l400.jpg"
+      alt="no image"
+    />
+  {{/if}}
+  {{!-- <img src="{{user.imageUrl}}" alt="{{this.title}}" /> --}}
 
   <section class="my-spots">
     <h3>Spots created:</h3>
