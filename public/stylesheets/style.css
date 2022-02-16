@@ -15,9 +15,7 @@ body {
   font-size: 13px;
   background-color: white;
   font-family: "Work Sans", Verdana, Geneva, Tahoma, sans-serif;
-  color: black;
-  margin: 0;
-  padding: 0;
+  color: rgb(45, 45, 45);  
 }
 
 a {
@@ -147,5 +145,3 @@ footer {
   width: 100%;
   padding-left: 5%;
 }
-
-/* Test push*/

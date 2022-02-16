@@ -1,49 +1,51 @@
-<h1>Spot-create</h1>
+<h2>Hi,
+  {{session.user.name}}! Do you know a cool working spot? Add it here!</h2>
 
-<form action="/spots/create" method="post" enctype="multipart/form-data">
-  <label>
-    Title:
-    <input type="text" name="title" />
-  </label>
+<form
+  action="/spots/create"
+  method="post"
+  enctype="multipart/form-data"
+  class="form-card-create"
+>
+  <h3>Post a new spot</h3>
 
-  <label>
-    Details:
-    <input type="text" name="details" />
-  </label>
+  <div class="form-content">
+    <div class="input-field">
+      <input type="text" name="title" placeholder="Name of spot" required />
+    </div>
+    <div class="input-field">
+      <input type="text" name="openingHours" placeholder="Opening hours" />
+    </div>
 
-  <label>
-    Description:
-    <textarea name="description" cols="30" rows="4"> </textarea>
-  </label>
-  <label>
-  <label> Created By:
-  <select name="author">
-    <option value="{{session.user.name._id}}">{{session.user.name}}</option>
-  </select>
-  <label>
-    Rating:
-    <input type="number" name="rating" min="1" max="5" />
-  </label>
-  {{!-- <label>
-    Address:
-    <input type="text" name="latitude" placeholder="latitude" >
-    <input type="text" name="longitude" placeholder="longitude">
-  </label> --}}
-  <label>
-    Average price:
-    <input type="number" name="averagePrice" />
-  </label>
-  <label>
-    Opening Hours:
-    <input type="text" name="openingHours" />
-  </label>
-  <label>
-    Picture:
-    <input type="file" name="spotPicture" />
-  </label>
+    <div class="select-field">
+      <p>Price class</p>
+      <select name="details" class="select-field-content">
+        <option value="€">€</option>
+        <option value="€€">€€</option>
+        <option value="€€€">€€€</option>
+      </select>
+    </div>
 
-  {{!-- <div id="mapBlanco" class="map">Location</div> --}}
+    <div class="select-field">
+      <p>Details</p>
+      <input type="checkbox" name="details" />
+    </div>
 
-  <button type="submit"> Create </button>
+    <div class="input-field">
+      <p>Short description</p>
+      <textarea
+        type="text"
+        name="description"
+        cols="30"
+        rows="4"
+        placeholder="Nice and friendly place ..."
+      ></textarea>
+    </div>
+    <div class="input-field">
+      <p>Upload an image</p>
+      <input type="file" name="spotPicture" placeholder="upload picture" />
+    </div>
+    <button type="submit" class="btn-green-main">Add new spot</button>
+
+  </div>
 </form>
-
