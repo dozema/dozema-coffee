@@ -21,13 +21,14 @@
 
 .form-card h3, .form-card-create h3 {
   color: #044343;
-  padding: 30px 30px 0 45px;
-  font-weight: 800;
+  text-align: center;
+  padding: 20px 10px 0px 10px;
+  font-weight: 900;
   text-transform: uppercase;
 }
 
 .form-content {
-  padding: 10px 30px;
+  padding: 0 30px 20px 30px;
   text-align: center;
 }
 .form-content a {
@@ -39,22 +40,30 @@
 }
 
 .input-field {
-  padding: 12px 5px;
+  padding: 5px;
 }
 
-.input-field p, .select-field p {
+.input-field p,
+.select-field p {
   text-align: left;
   color: #747474;
+  font-size: 0.9em;
 }
 
 .input-field input {
   font-size: 12px;
   display: block;
   width: 100%;
-  padding: 6px 2px;
+  padding: 8px 2px;
   border: 0;
   border-bottom: 1px solid #747474;
   outline: none; 
+  background-color: #f2f2f2;
+  color: #044343;
+}
+
+input::placeholder{
+  color: #b6b3b0
 }
 
 .select-field {
