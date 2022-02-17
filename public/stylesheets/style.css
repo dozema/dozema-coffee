@@ -22,8 +22,17 @@ a {
   color: #634258;
 }
 
+a:hover {
+  color:#ad3184
+}
+
 h1 {
   font-size: 20px;
+}
+
+button {
+  display: inline-block;
+  border: none;
 }
 
 .map {
@@ -259,7 +268,6 @@ form {
   font-size: 2em;
   color: #044343;
 }
-
 
 .show-map {
   height: 400px;

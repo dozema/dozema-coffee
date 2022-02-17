@@ -1,6 +1,6 @@
 <div class="container spot-details">
 
-  <div class="row align-items-start">
+  <div class="row align-items-start justify-content-between">
     <div class="col-md-6">
       <h1>{{title}}</h1>
       <h6>Posted by: 
@@ -23,9 +23,20 @@
           <li class="checkbox">{{this}}</li>
         {{/each}}
       </ul>
+
+<div class="button-section">
+  <a href="/spots/{{this._id}}/edit" class="button-edit">Edit</a>
+  <form action="/spots/{{_id}}/delete" method="post" style="display:inline">
+    <button type="submit" class="button-delete">Delete</button>
+  </form>
+</div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-5 justify-flex-end">
+           <div>
+  <a href="/spots/{{this._id}}/favorite" class="button-like"> ♡ LIKE</a>
+      </div>
+      <br><br><br>
       {{#if imageUrl}}
         <img src="{{imageUrl}}" alt="{{this.title}}" class="img-spot-details"/>
       {{else}}
@@ -36,15 +47,13 @@
         />
       {{/if}}
 
-      <div>
-  <a href="/spots/{{this._id}}/favorite" class="button-like"> ♡ Add to favorites</a>
-      </div>
+ <br><br>
+  <script>
+  var spotLocation =
+  {{{this.location}}}; var spotTitle = '{{{this.title}}}';
+</script>
+<div id="map" class="map">Location</div>
 
-
-  <a href="/spots/{{this._id}}/edit">Edit</a>
-  <form action="/spots/{{_id}}/delete" method="post">
-    <button type="submit">Delete</button>
-  </form>
 </div>
     </div>
   </div>
@@ -52,12 +61,3 @@
 
 
 
-
-<hr>
-
-<script>
-  var spotLocation =
-  {{{this.location}}}; var spotTitle = '{{{this.title}}}';
-</script>
-
-<div id="map" class="map">Location</div>

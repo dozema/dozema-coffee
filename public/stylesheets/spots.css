@@ -1,7 +1,13 @@
 .spot-details {
     width: 60%;
-    padding-top: 5%;
-    border: 1px solid #c7b198;
+    margin-top: 40px;
+    padding: 30px;
+     border-radius: 4px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.col-md-6 {
+    padding-left: 20px;
 }
 
 .img-spot-details {
@@ -20,6 +26,7 @@
 font-size: 1.3em;
 font-weight: 600;
 text-decoration: underline;
+padding-top: 10px;
 }
 
 .spot-details p {
@@ -44,20 +51,53 @@ font-size: 1.2em;
 
 .button-like {
   color: white;
-  background-color: #c7b198;
-  vertical-align: middle;
+  background-color: #9e3c7d;
   text-decoration: none;
   font-weight: 600;
   padding: 10px 20px;
-  margin-left: 10px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 2px;
   border-radius: 4px;
+  z-index: 2;
+  float:right;
 }
 
 .button-like:hover {
-  background-color: transparent;
-  border: #c7b198 1px solid;
-  color: #c7b198
+  background-color: #e23caa;
+  border: #e23caa 1px solid;
+  color: white;
+  justify-items: flex-end;
+}
+
+.button-section{
+ flex-direction: row;
+}
+
+.button-edit {
+ color: white;
+  border: 1px solid #ab9781;
+  background-color: #ab9781;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 7px 20px;
+  margin-left: 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 4px;  
+}
+
+.button-delete {
+color: #ab9781;
+background-color: transparent;
+  border: 1px solid #ab9781;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 7px 20px;
+  margin-left: 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 4px;  
 }
