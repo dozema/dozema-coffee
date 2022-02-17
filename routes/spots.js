@@ -6,6 +6,7 @@ const User = require("../models/User.model");
 const isCreator = require("../middleware/isCreator");
 const req = require("express/lib/request");
 const fileUploader = require("../config/cloudinary.config");
+const axios = require("axios");
 
 router.get("/", (req, res, next) => {
   Spot.find()
@@ -43,12 +44,12 @@ router.post(
   isLoggedIn,
   fileUploader.single("spotPicture"),
   (req, res, next) => {
+    let address = req.body.address;
     const newSpot = {
       title: req.body.title,
       description: req.body.description,
       creator: req.session.user,
       // rating: req.body.rating,
-      // address: req.body.address,
       // location: {
       //   type: "Point",
       //   coordinates: [req.body.longitude, req.body.latitude],
@@ -57,13 +58,30 @@ router.post(
       openingHours: req.body.openingHours,
       imageUrl: req.file?.path,
       details: req.body.details,
+      address,
     };
-    Spot.create(newSpot)
-      .then(() => {
-        res.redirect("/spots");
+    axios
+      .get(
+        `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURI(
+          address
+        )}&key=AIzaSyBESkPQYieOnIYDgeryIpZALxce_BORe04`
+      )
+      .then((result) => {
+        if (result.data) {
+          return (newSpot.location = {
+            latitude: result.data.results[0].geometry.location.lat,
+            longitude: result.data.results[0].geometry.location.lng,
+          });
+        }
       })
-      .catch((err) => {
-        console.log("Error creating spot...", err);
+      .then(() => {
+        Spot.create(newSpot)
+          .then(() => {
+            res.redirect("/spots");
+          })
+          .catch((err) => {
+            console.log("Error creating spot...", err);
+          });
       });
   }
 );
@@ -85,7 +103,9 @@ router.get("/:spotId/edit", isLoggedIn, isCreator, (req, res, next) => {
   Spot.findById(req.params.spotId)
     .populate("creator")
     .then((spot) => {
-      let newDetails = details.filter((detail) => !spot.details.includes(detail))
+      let newDetails = details.filter(
+        (detail) => !spot.details.includes(detail)
+      );
       res.render("spots/spot-edit", { spot, details: newDetails });
     })
     .catch((err) => {

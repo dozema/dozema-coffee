@@ -1,4 +1,3 @@
-
 <form
   action="/spots/create"
   method="post"
@@ -10,7 +9,12 @@
   <div class="form-content">
     <div class="input-field">
       <p>Name of spot</p>
-      <input type="text" name="title" placeholder="e.g. New York Café" required />
+      <input
+        type="text"
+        name="title"
+        placeholder="e.g. New York Café"
+        required
+      />
     </div>
     <div class="input-field">
       <p>Opening hours</p>
@@ -28,12 +32,12 @@
 
     <div class="select-field">
       <p>Select details: </p>
-    {{#each details}}
-    <div>
-      <input type="checkbox" id={{this}} name="details" value="{{this}}">
-      <label for={{this}}>{{this}}</label>
-    </div>
-    {{/each}}
+      {{#each details}}
+        <div>
+          <input type="checkbox" id={{this}} name="details" value="{{this}}" />
+          <label for={{this}}>{{this}}</label>
+        </div>
+      {{/each}}
     </div>
 
     <div class="input-field">
@@ -54,7 +58,12 @@
 
     <div class="select-field">
       <p> Created by: {{session.user.name}}</p>
-</div>
+    </div>
+
+    <div class="input-field">
+      <p>Add the address</p>
+      <input type="text" name="address" placeholder="address here" />
+    </div>
 
     <button type="submit" class="btn-green-main">Add new spot</button>
 
