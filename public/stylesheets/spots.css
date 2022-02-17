@@ -1,0 +1,63 @@
+.spot-details {
+    width: 60%;
+    padding-top: 5%;
+    border: 1px solid #c7b198;
+}
+
+.img-spot-details {
+    max-width: 100%;
+    justify-content: center;
+}
+
+.spot-details h1 {
+    font-size: 2.3em;
+    font-weight: 900;
+    font-style: bolder;
+    color: #044343;   
+}
+
+.spot-details h4 {
+font-size: 1.3em;
+font-weight: 600;
+text-decoration: underline;
+}
+
+.spot-details p {
+    font-size: 1.2em;
+}
+
+.spot-details ul{
+    padding-left: 3;
+}
+.spot-details li {
+list-style: none;
+font-size: 1.2em;
+}
+
+.spot-details ul li:before {
+  content: '✓ ';
+}
+
+.spot-details h6 {
+    font-size: 0.9em;
+}
+
+.button-like {
+  color: white;
+  background-color: #c7b198;
+  vertical-align: middle;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 4px;
+}
+
+.button-like:hover {
+  background-color: transparent;
+  border: #c7b198 1px solid;
+  color: #c7b198
+}

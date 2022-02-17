@@ -1,38 +1,59 @@
-<h1>Spot-details</h1>
+<div class="container spot-details">
 
-<section>
-  {{#if imageUrl}}
-    <img src="{{imageUrl}}" alt="{{this.title}}"  class="img-spot"/>
-  {{else}}
-    <img 
-      src="https://img.freepik.com/free-vector/cute-pug-dog-drink-coffee-cup-cartoon-animal-logo-coffee-illustration_295036-956.jpg"
-      alt="no image"
-      class="img-spot"
-    />
-  {{/if}}
+  <div class="row align-items-start">
+    <div class="col-md-6">
+      <h1>{{title}}</h1>
+      <h6>Posted by: 
+      {{#if creator}}
+        {{creator.name}}
+        {{else}}
+        unknown
+        {{/if}}
+        </h6>
+      <br>
+      <h4>Description:</h4>
+      <p>{{description}}</p>
+      <h4>Opening Hours:</h4>
+         <p>{{openingHours}}</p>
+      <h4>Price class:</h4>
+         <p>{{averagePrice}}</p>
+      <h4>Details:</h4>
+      <ul>
+        {{#each this.details}}
+          <li class="checkbox">{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
 
-  <h1>{{title}}</h1>
-  <ul>
-  {{#each this.details}}
-  <li class="checkbox">{{this}}</li> 
-  {{/each}}
-  </ul>
+    <div class="col-md-4">
+      {{#if imageUrl}}
+        <img src="{{imageUrl}}" alt="{{this.title}}" class="img-spot-details"/>
+      {{else}}
+        <img
+          src="https://img.freepik.com/free-vector/cute-pug-dog-drink-coffee-cup-cartoon-animal-logo-coffee-illustration_295036-956.jpg"
+          alt="no image"
+          class="img-spot-details"
+        />
+      {{/if}}
 
-  <p>Description: {{description}}</p>
-  <p>Created by: {{creator.name}}</p>
-  <p>Rating: {{rating}}</p>
-  <p>Address: {{address}}</p>
-  <p>Average Price: {{averagePrice}}</p>
-  <p>Opening Hours: {{openingHours}}</p>
-  <br/>
+      <div>
+  <a href="/spots/{{this._id}}/favorite" class="button-like"> ♡ Add to favorites</a>
+      </div>
 
-  <a href="/spots/{{this._id}}/favorite">Like</a>
+
   <a href="/spots/{{this._id}}/edit">Edit</a>
   <form action="/spots/{{_id}}/delete" method="post">
     <button type="submit">Delete</button>
   </form>
+</div>
+    </div>
+  </div>
+</div>
 
-</section>
+
+
+
+<hr>
 
 <script>
   var spotLocation =
