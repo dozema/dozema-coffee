@@ -143,7 +143,9 @@ form {
 }
 
 /* 404 */
-.not-found {
+.not-found,
+.error {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -151,8 +153,21 @@ form {
   gap: 40px;
 }
 
-.not-found img {
+.not-found img,
+.error img {
   width: 500px;
+}
+
+.not-found a,
+.error a {
+  padding: 10px;
+  width: 120px;
+  text-align: center;
+  border: #c9b39a solid 1px;
+  border-radius: 3px;
+  text-decoration: none;
+  color: white;
+  background-color: #c7b198;
 }
 
 /* index.hbs */
