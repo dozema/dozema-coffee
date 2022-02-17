@@ -1,5 +1,3 @@
-<h2>Hi,
-  {{session.user.name}}! Do you know a cool working spot? Add it here!</h2>
 
 <form
   action="/spots/create"
@@ -7,24 +5,27 @@
   enctype="multipart/form-data"
   class="form-card-create"
 >
-  <h3>Post a new spot</h3>
+  <h3>Add a new spot</h3>
 
   <div class="form-content">
     <div class="input-field">
-      <input type="text" name="title" placeholder="Name of spot" required />
+      <p>Name of spot</p>
+      <input type="text" name="title" placeholder="e.g. New York Café" required />
     </div>
     <div class="input-field">
-      <input type="text" name="openingHours" placeholder="Opening hours" />
+      <p>Opening hours</p>
+      <input type="text" name="openingHours" placeholder="e.g. 10:00 - 20:30" />
     </div>
 
     <div class="select-field">
-      <p>Price class</p>
-      <select name="details" class="select-field-content">
+      <p>Price class:</p>
+      <select name="averagePrice" class="select-field-content">
         <option value="€">€</option>
         <option value="€€">€€</option>
         <option value="€€€">€€€</option>
       </select>
     </div>
+    
     <div class="select-field">
       <p> Created by:</p>
       <select name="author" class="select-field-content">
