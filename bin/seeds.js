@@ -24,19 +24,14 @@ const spots = [
     openingHours: "Mon-Fri 7:30-20:00",
     imageUrl:
       "https://cdn.omnium.cat/wp-content/uploads/2018/06/01093545/can-comas.jpg",
-    details: {
-      vegan: false,
-      vegetarian: false,
-      glutenFree: false,
-      petFriendly: false,
-      wifi: false,
-      powerStations: false,
-      quiet: false,
-      crowded: true,
-      happyHour: false,
-      liveMusic: false,
-      workDesks: false,
-    },
+    details: [
+      {
+        type: String,
+        enum: [
+          "Crowded",
+        ],
+      },
+    ],
     location: {
       latitude: 41.44514367806466,
       longitude: 2.2424786390645974,
@@ -48,19 +43,20 @@ const spots = [
     averagePrice: "€€",
     openingHours: "Wed-Sun 10:00-18:00",
     imageUrl: "https://www.lealou.me/wp-content/uploads/2020/04/DSC_4828.jpg",
-    details: {
-      vegan: true,
-      vegetarian: true,
-      glutenFree: true,
-      petFriendly: false,
-      wifi: true,
-      powerStations: true,
-      quiet: true,
-      crowded: true,
-      happyHour: false,
-      liveMusic: false,
-      workDesks: false,
-    },
+    details: [
+      {
+        type: String,
+        enum: [
+          "Vegan",
+          "Vegetarian",
+          "Gluten-free",
+          "Wifi",
+          "Power stations",
+          "Work desks",
+          "Quiet",
+        ],
+      },
+    ],
     location: {
       latitude: 50.10133897945841,
       longitude: 8.658401002135413,
@@ -73,19 +69,20 @@ const spots = [
     openingHours: "Mon-Thu 10:00-18:00 & Fri-Sun 10:00-20:00",
     imageUrl:
       "https://res.cloudinary.com/tf-lab/image/upload/w_600,h_337,c_fill,g_auto:subject,q_auto,f_auto/restaurant/4fd52dcf-94c5-4876-8e71-dc14f0e46ab6/4d6b8bd1-4b92-41fd-9afd-75ae31671c7c.jpg",
-    details: {
-      vegan: true,
-      vegetarian: true,
-      glutenFree: false,
-      petFriendly: true,
-      wifi: true,
-      powerStations: true,
-      quiet: false,
-      crowded: true,
-      happyHour: false,
-      liveMusic: false,
-      workDesks: false,
-    },
+    details: [
+      {
+        type: String,
+        enum: [
+          "Vegan",
+          "Vegetarian",
+          "Gluten-free",
+          "Pet-friendly",
+          "Wifi",
+          "Power stations",
+          "Crowded",
+        ],
+      },
+    ],
     location: {
       latitude: 52.35812051936951,
       longitude: 4.930267088008355,
