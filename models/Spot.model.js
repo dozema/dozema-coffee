@@ -34,6 +34,7 @@ const spotSchema = new Schema(
       latitude: Number,
       longitude: Number,
     },
+    address: String,
   },
   {
     timestamps: true,
