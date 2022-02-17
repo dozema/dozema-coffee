@@ -20,19 +20,12 @@ const spotSchema = new Schema(
     },
     openingHours: String,
     imageUrl: String,
-    details: {
-      vegan: Boolean,
-      vegetarian: Boolean,
-      glutenFree: Boolean,
-      petFriendly: Boolean,
-      wifi: Boolean,
-      powerStations: Boolean,
-      quiet: Boolean,
-      crowded: Boolean,
-      happyHour: Boolean,
-      liveMusic: Boolean,
-      workDesks: Boolean,
-    },
+    details: [
+      {
+      type: String,
+      enum: [ "Vegan", "Vegetarian", "Gluten-free", "Pet-friendly", "Wifi", "Power stations", "Work desks", "Quiet", "Crowded", "Happy hour", "Live music"],
+      }
+    ]
   },
   {
     timestamps: true,

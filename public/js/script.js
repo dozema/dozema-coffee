@@ -68,6 +68,8 @@ window.addEventListener("load", () => {
 //     console.log("Browser does not support geolocation.");
 //   }
 
+
+
 // google.maps.event.addListener(map, "click", (event) => {
 //   addMarker(event.latLng, map);
 // });
