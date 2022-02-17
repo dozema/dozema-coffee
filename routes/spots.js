@@ -67,9 +67,7 @@ router.post(
         )}&key=AIzaSyBESkPQYieOnIYDgeryIpZALxce_BORe04`
       )
       .then((result) => {
-        console.log("1");
         if (result.data) {
-          console.log(2);
           return (newSpot.location = {
             latitude: result.data.results[0].geometry.location.lat,
             longitude: result.data.results[0].geometry.location.lng,
