@@ -6,88 +6,59 @@
   <div class="spots-listing">
     <section>
       <h3>Find your favorite spot</h3>
-
-      <div class="container">
+      <div class="col-container">
         <div class="row">
 
-          <div class="col-3">
-            <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the
-                  card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-3">
-            <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the
-                  card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
+          {{#each spots}}
+            <div class="col-3">
+              <div class="card h-100" style="width: 15rem;">
 
-                    <div class="col-3">
-            <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the
-                  card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                {{#if imageUrl}}
+                  <img
+                    src="{{imageUrl}}"
+                    class="card-img-top"
+                    style="width: 3rem;"
+                    alt="{{this.title}}"
+                  />
+                {{else}}
+                  <img
+                    src="https://img.freepik.com/free-vector/cute-pug-dog-drink-coffee-cup-cartoon-animal-logo-coffee-illustration_295036-956.jpg"
+                    alt="no image"
+                  />
+                {{/if}}
+
+                <div class="card-body" >
+                  <h5 class="card-title">{{this.title}}</h5>
+                  <p class="card-text" style="height: 3rem;">{{this.description}}</p>
+                  <ul class="list-group list-group-flush" style="height: 3rem;">
+                     {{#each this.details}}
+                    <li class="list-group-item">{{this}}</li>
+                       {{/each}}
+                  </ul>
+                  <a
+                    href="/spots/{{this._id}}/spot-details"
+                    class="btn button-card"
+                  >See more</a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-3">
-            <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the
-                  card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
+          {{/each}}
 
         </div>
       </div>
-
-      {{#each spots}}
-        <section>
-          {{#if imageUrl}}
-            <img src="{{imageUrl}}" alt="{{this.title}}" />
-          {{else}}
-            <img
-              src="https://img.freepik.com/free-vector/cute-pug-dog-drink-coffee-cup-cartoon-animal-logo-coffee-illustration_295036-956.jpg"
-              alt="no image"
-            />
-          {{/if}}
-
-          <h1>{{this.title}}</h1>
-          {{#each this.details}}
-            <li>{{this}}</li>
-          {{/each}}
-        </section>
-
-        <a href="/spots/{{this._id}}/spot-details">More details</a>
-        <hr />
-      {{/each}}
-
     </section>
   </div>
-
-  <section class="call-to-action">
-    <h3>Do you know a nice spot for working?</h3>
-    <button>
-      <a href="/spots/create">Add a spot!</a>
-    </button>
-  </section>
-  <div id=“map” class=“map”>Location</div>
 </div>
+
+  <section>
+    <div class="call-to-action">
+    <div>
+    <h3>Do you know a nice spot for working? 👩🏼‍💻👩🏻‍💻</h3>
+    </div>
+
+    <div>
+      <a href="/spots/create"  class="call-to-action-button">Add a spot!</a>
+    </div>
+  </section>
+  </div>
+  <div id="map" class="map">Location</div>

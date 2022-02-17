@@ -24,13 +24,13 @@
 
         <div class="navbar-right">
           {{#if session.user}}
-            <a href="/users/profile" class="btn-primary">Profile</a>
+            <a href="/users/profile" class="button-primary">Profile</a>
             <form action="/logout" method="POST">
-            <button class="btn-secondary">Logout</button>  
+            <button class="button-secondary">Logout</button>  
           </form>
           {{else}}
-            <a href="/signup" class="btn-secondary">Register</a>
-            <a href="/login" class="btn-primary">Login</a>
+            <a href="/signup" class="button-secondary">Register</a>
+            <a href="/login" class="button-primary">Login</a>
           {{/if}}
         </div>
       </div>
@@ -39,7 +39,7 @@
       {{{body}}}
 
     <footer>
-      <p>© 2022 by dozema ☕ </p>
+      <p><br>© 2022 by dozema ☕ </p>
     </footer>
 
   </body>
