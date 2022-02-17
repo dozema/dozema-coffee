@@ -22,7 +22,10 @@ router.get("/locations", (req, res, next) => {
   Spot.find()
     .populate("creator")
     .then((spotsFromDB) => {
-      const spotsLocations = spotsFromDB.map((spot) => spot.location);
+      const spotsLocations = spotsFromDB.map((spot) => ({
+        ...spot.location,
+        id: spot._id,
+      }));
       res.json({ locations: spotsLocations });
     })
     .catch((err) => {

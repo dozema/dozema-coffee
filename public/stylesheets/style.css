@@ -13,6 +13,8 @@ body {
   background-color: white;
   font-family: "Work Sans", Verdana, Geneva, Tahoma, sans-serif;
   color: rgb(45, 45, 45);  
+  padding-top: 5%;
+  
 }
 
 a {
@@ -33,7 +35,7 @@ h1 {
 }
 
 /* layout.hbs */
-.navbar {
+.navibar {
   display: block;
   position: fixed;
   top: 0;
@@ -128,7 +130,7 @@ form {
   background-color: white;
 }
 
-footer {
+.footer {
   background-color: #044343;
   color: white;
   position: fixed;
@@ -136,7 +138,19 @@ footer {
   width: 100%;
   height: 50px;
   padding-left: 5%;
+}
 
+/* 404 */
+.not-found { 
+  display: flex; 
+  flex-direction: column; 
+  justify-items: center; 
+  align-items: center; 
+  gap: 40px; 
+}
+
+.not-found img { 
+  width: 500px;
 }
 
 /* index.hbs */
