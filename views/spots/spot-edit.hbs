@@ -1,52 +1,83 @@
-<h1>Spot-edit</h1>
+<form action="/spots/{{spot._id}}/edit" method="post" class="form-card-create">
+  <h3>Edit spot details</h3>
 
-<form action="/spots/{{spot._id}}/edit" method="post">
-  <label>
-    Title:
-    <input type="text" name="title" value="{{spot.title}}" />
-  </label>
+  <div class="form-content">
+    <div class="input-field">
+      <p>Name of spot</p>
+      <input type="text" name="title" value="{{spot.title}}" />
+    </div>
+
+    <div class="input-field">
+      <p>Opening hours</p>
+      <input type="text" name="openingHours" value="{{spot.openingHours}}" />
+    </div>
 
     <div class="select-field">
-
-    {{#each spot.details}}
-    {{#if this}}
-    <div>
-      <input type="checkbox" id={{this}} name="details" value="{{this}}" checked>
-      <label for={{this}}>{{this}}</label>
+      <p>Price class:</p>
+      {{#each averagePrice}}
+        <div>
+          <select
+            name="averagePrice"
+            id={{this}}
+            value="{{this}}"
+            class="select-field-content"
+          >
+            <option for={{this}}>{{this}}</option>
+          </select>
+        </div>
+      {{/each}}
     </div>
-    {{/if}}
-    {{/each}}
 
-    {{#each details}}
-    <div>
-      <input type="checkbox" id={{this}} name="details" value="{{this}}"  >
-      <label for={{this}}>{{this}}</label>
+    <div class="select-field">
+      <p>Price class:</p>
+      <select name="averagePrice" class="select-field-content">
+        <option value="€">€</option>
+        <option value="€€">€€</option>
+        <option value="€€€">€€€</option>
+      </select>
     </div>
-    {{/each}}
 
-  <label>
-    Description:
-    <textarea name="description" cols="30" rows="4">{{spot.description}} </textarea>
-  </label>
+    <div class="select-field">
+      <p>Details</p>
 
-  <label>
-    Rating:
-    <input type="number" name="rating" min="1" max="5" value="{{spot.rating}}" />
-  </label>
-  <label>
-    Address:
-    <input type="text" name="address" value="{{spot.address}}" />
-  </label>
-  <label>
-    Average price:
-    <input type="number" name="averagePrice" value="{{spot.averagePrice}}" />
-  </label>
-  <label>
-    Opening Hours:
-    <input type="text" name="openingHours" value="{{spot.openingHours}}" />
-  </label>
+      {{#each spot.details}}
+        {{#if this}}
+          <div>
+            <input
+              type="checkbox"
+              id={{this}}
+              name="details"
+              value="{{this}}"
+              checked
+            />
+            <label for={{this}}>{{this}}</label>
+          </div>
+        {{/if}}
+      {{/each}}
 
-  <label> Created By: {{session.user.name}}
+      {{#each details}}
+        <div>
+          <input type="checkbox" id={{this}} name="details" value="{{this}}" />
+          <label for={{this}}>{{this}}</label>
+        </div>
+      {{/each}}
 
-  <button type="submit"> Change </button>
+    </div>
+
+    <div class="input-field">
+      <p>Description</p>
+      <textarea
+        type="text"
+        name="description"
+        cols="30"
+        rows="4"
+        value="{{description}}"
+      >{{spot.description}}</textarea>
+    </div>
+
+    <div class="select-field">
+      <p> Created by: {{session.user.name}}</p>
+    </div>
+    <button type="submit" class="btn-green-main">Update spot</button>
+  </div>
 </form>

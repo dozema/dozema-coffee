@@ -5,9 +5,9 @@
 
   <hr />
   {{#if user.imageUrl}}
-    <img src="{{user.imageUrl}}" alt="user picture" />
+    <img class="myprofile-picture" src="{{user.imageUrl}}" alt="user picture" />
   {{else}}
-    <img
+    <img class="myprofile-picture"
       src="https://i.ebayimg.com/images/g/KIYAAOSwVblcbUkB/s-l400.jpg"
       alt="no image"
     />
@@ -33,10 +33,10 @@
     </ul>
   </section>
 
-  <button><a href="/users/{{user._id}}/edit">Edit profile</a></button>
+  <button class="button-primary"><a href="/users/{{user._id}}/edit">Edit profile</a></button>
 
   <form action="/users/{{user._id}}/delete" method="POST">
-    <button>
+    <button class="button-secondary">
       Delete profile
     </button>
   </form>
