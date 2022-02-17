@@ -31,7 +31,8 @@ router.get("/locations", (req, res, next) => {
 });
 
 router.get("/create", isLoggedIn, (req, res, next) => {
-  res.render("spots/spot-create");
+  let details = Spot.schema.path("details").caster.enumValues
+  res.render("spots/spot-create", {details: details});
 });
 
 router.post(
@@ -41,19 +42,6 @@ router.post(
   (req, res, next) => {
     const newSpot = {
       title: req.body.title,
-      details: {
-        vegan: req.body.vegan,
-        vegetarian: req.body.vegetarian,
-        glutenFree: req.body.glutenFree,
-        petFriendly: req.body.petFriendly,
-        wifi: req.body.wifi,
-        powerStations: req.body.powerStations,
-        quiet: req.body.quiet,
-        crowded: req.body.crowded,
-        happyHour: req.body.happyHour,
-        liveMusic: req.body.liveMusic,
-        workDesks: req.body.workDesks,
-      },
       description: req.body.description,
       creator: req.session.user,
       // rating: req.body.rating,
@@ -65,6 +53,7 @@ router.post(
       averagePrice: req.body.averagePrice,
       openingHours: req.body.openingHours,
       imageUrl: req.file?.path,
+      details: req.body.details
     };
     Spot.create(newSpot)
       .then(() => {

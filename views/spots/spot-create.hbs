@@ -1,5 +1,3 @@
-<h2>Hi,
-  {{session.user.name}}! Do you know a cool working spot? Add it here!</h2>
 
 <form
   action="/spots/create"
@@ -7,24 +5,27 @@
   enctype="multipart/form-data"
   class="form-card-create"
 >
-  <h3>Post a new spot</h3>
+  <h3>Add a new spot</h3>
 
   <div class="form-content">
     <div class="input-field">
-      <input type="text" name="title" placeholder="Name of spot" required />
+      <p>Name of spot</p>
+      <input type="text" name="title" placeholder="e.g. New York Café" required />
     </div>
     <div class="input-field">
-      <input type="text" name="openingHours" placeholder="Opening hours" />
+      <p>Opening hours</p>
+      <input type="text" name="openingHours" placeholder="e.g. 10:00 - 20:30" />
     </div>
 
     <div class="select-field">
-      <p>Price class</p>
-      <select name="details" class="select-field-content">
+      <p>Price class:</p>
+      <select name="averagePrice" class="select-field-content">
         <option value="€">€</option>
         <option value="€€">€€</option>
         <option value="€€€">€€€</option>
       </select>
     </div>
+    
     <div class="select-field">
       <p> Created by:</p>
       <select name="author" class="select-field-content">
@@ -34,50 +35,12 @@
 
     <div class="select-field">
      <p>Details</p>
+    {{#each details}}
     <div>
-      <input type="checkbox" id="vegan" name="vegan" value="true">
-      <label for="vegan">Vegan</label>
+      <input type="checkbox" id={{this}} name="details" value={{this}}>
+      <label for={{this}}>{{this}}</label>
     </div>
-    <div>
-      <input type="checkbox" id="vegetarian" name="vegetarian" value="true">
-      <label for="vegetarian">Vegetarian</label>
-    </div>
-    <div>
-      <input type="checkbox" id="glutenFree" name="glutenFree" value="true">
-      <label for="glutenFree">Gluten-free</label>
-    </div>
-    <div>
-      <input type="checkbox" id="petFriendly" name="petFriendly" value="true">
-      <label for="petFriendly">Pet-friendly</label>
-    </div>
-      <div>
-      <input type="checkbox" id="wifi" name="wifi" value="true">
-      <label for="wifi">WiFi</label>
-    </div>
-      <div>
-      <input type="checkbox" id="powerStations" name="powerStations" value="true">
-      <label for="powerStations">Power stations</label>
-    </div>
-      <div>
-      <input type="checkbox" id="workDesks" name="workDesks" value="true">
-      <label for="workDesks">Work desks</label>
-    </div>
-    <div>
-      <input type="checkbox" id="quiet" name="quiet" value="true">
-      <label for="quiet">Quiet</label>
-    </div>
-    <div>
-      <input type="checkbox" id="crowded" name="crowded" value="true">
-      <label for="crowded">Crowded</label>
-    </div>
-    <div>
-      <input type="checkbox" id="happyHour" name="happyHour" value="true">
-      <label for="happyHour">Happy hour</label>
-    </div>
-    <div>
-      <input type="checkbox" id="liveMusic" name="liveMusic" value="true">
-      <label for="liveMusic">Live music</label>
-    </div>
+    {{/each}}
 
     <div class="input-field">
       <p>Short description</p>
