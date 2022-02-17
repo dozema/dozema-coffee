@@ -181,6 +181,7 @@ form {
  justify-content: center;
   display: flex;
   align-items: center;
+  margin-top: 50px;
 }
 
 .spots-listing h3 {
@@ -211,6 +212,16 @@ form {
 .button-card:hover{
   background-color: #044343;
   color: white;
+}
+
+.show-map {
+ height: 400px;
+  background-color:#f6f0e9;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding:5%;
 }
 
 .call-to-action {
