@@ -1,37 +1,87 @@
-<div class="index-page">
+<header class="header-content">
+  <h1>Looking for a nice spot to work?</h1>
+</header>
 
-  <header class="header-content">
-    <h1>Looking for a spot to work?</h1>
-    <h2>find it here.....</h2>
-  </header>
+<div class="main-content">
+  <div class="spots-listing">
+    <section>
+      <h3>Find your favorite spot</h3>
 
-  <section class="spots-listing">
-    <h2>Find your favorite spot</h2>
+      <div class="container">
+        <div class="row">
 
-    {{#each spots}}
-      <section>
-        {{#if imageUrl}}
-          <img src="{{imageUrl}}" alt="{{this.title}}" />
-        {{else}}
-          <img
-            src="https://img.freepik.com/free-vector/cute-pug-dog-drink-coffee-cup-cartoon-animal-logo-coffee-illustration_295036-956.jpg"
-            alt="no image"
-          />
-        {{/if}}
+          <div class="col-3">
+            <div class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the
+                  card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the
+                  card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
 
-        <h1>{{this.title}}</h1>
-        {{#each this.details}}
-          {{#if this}}
-          <li>{{@key}}</li>
+                    <div class="col-3">
+            <div class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the
+                  card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the
+                  card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {{#each spots}}
+        <section>
+          {{#if imageUrl}}
+            <img src="{{imageUrl}}" alt="{{this.title}}" />
+          {{else}}
+            <img
+              src="https://img.freepik.com/free-vector/cute-pug-dog-drink-coffee-cup-cartoon-animal-logo-coffee-illustration_295036-956.jpg"
+              alt="no image"
+            />
           {{/if}}
-        {{/each}}
-      </section>
 
-      <a href="/spots/{{this._id}}/spot-details">More details</a>
-      <hr />
-    {{/each}}
+          <h1>{{this.title}}</h1>
+          {{#each this.details}}
+            <li>{{this}}</li>
+          {{/each}}
+        </section>
 
-  </section>
+        <a href="/spots/{{this._id}}/spot-details">More details</a>
+        <hr />
+      {{/each}}
+
+    </section>
+  </div>
 
   <section class="call-to-action">
     <h3>Do you know a nice spot for working?</h3>
@@ -39,4 +89,5 @@
       <a href="/spots/create">Add a spot!</a>
     </button>
   </section>
+  <div id=“map” class=“map”>Location</div>
 </div>
