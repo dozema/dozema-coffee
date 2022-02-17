@@ -85,7 +85,8 @@ router.get("/:spotId/edit", isLoggedIn, isCreator, (req, res, next) => {
   Spot.findById(req.params.spotId)
     .populate("creator")
     .then((spot) => {
-      res.render("spots/spot-edit", { spot, details: details });
+      let newDetails = details.filter((detail) => !spot.details.includes(detail))
+      res.render("spots/spot-edit", { spot, details: newDetails });
     })
     .catch((err) => {
       console.log("Error getting spotdetails from DB...", err);

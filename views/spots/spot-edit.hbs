@@ -8,6 +8,15 @@
 
     <div class="select-field">
 
+    {{#each spot.details}}
+    {{#if this}}
+    <div>
+      <input type="checkbox" id={{this}} name="details" value="{{this}}" checked>
+      <label for={{this}}>{{this}}</label>
+    </div>
+    {{/if}}
+    {{/each}}
+
     {{#each details}}
     <div>
       <input type="checkbox" id={{this}} name="details" value="{{this}}"  >
