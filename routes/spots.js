@@ -31,8 +31,8 @@ router.get("/locations", (req, res, next) => {
 });
 
 router.get("/create", isLoggedIn, (req, res, next) => {
-  let details = Spot.schema.path("details").caster.enumValues
-  res.render("spots/spot-create", {details: details});
+  let details = Spot.schema.path("details").caster.enumValues;
+  res.render("spots/spot-create", { details: details });
 });
 
 router.post(
@@ -53,7 +53,7 @@ router.post(
       averagePrice: req.body.averagePrice,
       openingHours: req.body.openingHours,
       imageUrl: req.file?.path,
-      details: req.body.details
+      details: req.body.details,
     };
     Spot.create(newSpot)
       .then(() => {
@@ -78,11 +78,11 @@ router.get("/:spotId/spot-details", (req, res, next) => {
 });
 
 router.get("/:spotId/edit", isLoggedIn, isCreator, (req, res, next) => {
-  let details = Spot.schema.path("details").caster.enumValues
+  let details = Spot.schema.path("details").caster.enumValues;
   Spot.findById(req.params.spotId)
     .populate("creator")
     .then((spot) => {
-      res.render("spots/spot-edit", {spot, details: details});
+      res.render("spots/spot-edit", { spot, details: details });
     })
     .catch((err) => {
       console.log("Error getting spotdetails from DB...", err);
@@ -100,7 +100,7 @@ router.post("/:spotId/edit", isLoggedIn, isCreator, (req, res, next) => {
     // address: req.body.address,
     averagePrice: req.body.averagePrice,
     openingHours: req.body.openingHours,
-    details: req.body.details
+    details: req.body.details,
   };
   Spot.findByIdAndUpdate(spotId, spot)
     .then(() => res.redirect(`/spots/${spotId}/spot-details`))

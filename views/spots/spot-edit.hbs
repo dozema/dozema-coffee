@@ -19,11 +19,7 @@
     Description:
     <textarea name="description" cols="30" rows="4">{{spot.description}} </textarea>
   </label>
-  <label> Created By:
-  <select name="author">
-    <option value="{{session.user.name._id}}">{{session.user.name}}</option>
-  </select>
-  <label>
+
   <label>
     Rating:
     <input type="number" name="rating" min="1" max="5" value="{{spot.rating}}" />
@@ -40,6 +36,8 @@
     Opening Hours:
     <input type="text" name="openingHours" value="{{spot.openingHours}}" />
   </label>
+
+  <label> Created By: {{session.user.name}}
 
   <button type="submit"> Change </button>
 </form>
