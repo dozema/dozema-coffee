@@ -3,7 +3,7 @@ const User = require("../models/User.model");
 const Spot = require("../models/Spot.model");
 
 const MONGO_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/dozema-coffee";
+  "mongodb://0.0.0.0/dozema-coffee " || "mongodb://localhost/dozema-coffee";
 
 mongoose
   .connect(MONGO_URI)
@@ -37,6 +37,10 @@ const spots = [
       liveMusic: false,
       workDesks: false,
     },
+    location: {
+      latitude: 41.44514367806466,
+      longitude: 2.2424786390645974,
+    },
   },
   {
     title: "MOMI",
@@ -56,6 +60,10 @@ const spots = [
       happyHour: false,
       liveMusic: false,
       workDesks: false,
+    },
+    location: {
+      latitude: 50.10133897945841,
+      longitude: 8.658401002135413,
     },
   },
   {
@@ -77,6 +85,10 @@ const spots = [
       happyHour: false,
       liveMusic: false,
       workDesks: false,
+    },
+    location: {
+      latitude: 52.35812051936951,
+      longitude: 4.930267088008355,
     },
   },
 ];

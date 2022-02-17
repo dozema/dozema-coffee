@@ -7,10 +7,13 @@ document.addEventListener(
 );
 
 // Map for spot-Details
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
+  const locations = await window.fetch("/spots/locations");
+  const results = await locations.json();
+  console.log("locations", results.locations);
   const location = {
-    lat: spotLocation.coordinates[1],
-    lng: spotLocation.coordinates[0],
+    lat: results.locations[0].latitude,
+    lng: results.locations[0].longitude,
   };
   // Initialize the map
   const map = new google.maps.Map(document.getElementById("map"), {
@@ -21,11 +24,11 @@ window.addEventListener("load", () => {
   // Add a marker for Spot
   const marker = new google.maps.Marker({
     position: {
-      lat: spotLocation.coordinates[1],
-      lng: spotLocation.coordinates[0],
+      lat: results.locations[0].latitude,
+      lng: results.locations[0].longitude,
     },
     map: map,
-    title: `${spotLocation}`,
+    title: `what goes here?`,
   });
 });
 

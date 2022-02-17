@@ -18,6 +18,18 @@ router.get("/", (req, res, next) => {
     });
 });
 
+router.get("/locations", (req, res, next) => {
+  Spot.find()
+    .populate("creator")
+    .then((spotsFromDB) => {
+      const spotsLocations = spotsFromDB.map((spot) => spot.location);
+      res.json({ locations: spotsLocations });
+    })
+    .catch((err) => {
+      console.log("Error getting spots from DB...", err);
+    });
+});
+
 router.get("/create", isLoggedIn, (req, res, next) => {
   let details = Spot.schema.path("details").caster.enumValues
   res.render("spots/spot-create", {details: details});
