@@ -24,14 +24,7 @@ const spots = [
     openingHours: "Mon-Fri 7:30-20:00",
     imageUrl:
       "https://cdn.omnium.cat/wp-content/uploads/2018/06/01093545/can-comas.jpg",
-    details: [
-      {
-        type: String,
-        enum: [
-          "Crowded",
-        ],
-      },
-    ],
+    details: ["Crowded"],
     location: {
       latitude: 41.44514367806466,
       longitude: 2.2424786390645974,
@@ -44,18 +37,13 @@ const spots = [
     openingHours: "Wed-Sun 10:00-18:00",
     imageUrl: "https://www.lealou.me/wp-content/uploads/2020/04/DSC_4828.jpg",
     details: [
-      {
-        type: String,
-        enum: [
-          "Vegan",
-          "Vegetarian",
-          "Gluten-free",
-          "Wifi",
-          "Power stations",
-          "Work desks",
-          "Quiet",
-        ],
-      },
+      "Vegan",
+      "Vegetarian",
+      "Gluten-free",
+      "Wifi",
+      "Power stations",
+      "Work desks",
+      "Quiet",
     ],
     location: {
       latitude: 50.10133897945841,
@@ -70,18 +58,13 @@ const spots = [
     imageUrl:
       "https://res.cloudinary.com/tf-lab/image/upload/w_600,h_337,c_fill,g_auto:subject,q_auto,f_auto/restaurant/4fd52dcf-94c5-4876-8e71-dc14f0e46ab6/4d6b8bd1-4b92-41fd-9afd-75ae31671c7c.jpg",
     details: [
-      {
-        type: String,
-        enum: [
-          "Vegan",
-          "Vegetarian",
-          "Gluten-free",
-          "Pet-friendly",
-          "Wifi",
-          "Power stations",
-          "Crowded",
-        ],
-      },
+      "Vegan",
+      "Vegetarian",
+      "Gluten-free",
+      "Pet-friendly",
+      "Wifi",
+      "Power stations",
+      "Crowded",
     ],
     location: {
       latitude: 52.35812051936951,
