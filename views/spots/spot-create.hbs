@@ -30,10 +30,11 @@
       <p>Select details: </p>
     {{#each details}}
     <div>
-      <input type="checkbox" id={{this}} name="details" value={{this}}>
+      <input type="checkbox" id={{this}} name="details" value="{{this}}">
       <label for={{this}}>{{this}}</label>
     </div>
     {{/each}}
+    </div>
 
     <div class="input-field">
       <p>Short description</p>
@@ -45,6 +46,7 @@
         placeholder="Nice and friendly place ..."
       ></textarea>
     </div>
+
     <div class="input-field">
       <p>Upload an image</p>
       <input type="file" name="spotPicture" placeholder="upload picture" />
@@ -52,7 +54,7 @@
 
     <div class="select-field">
       <p> Created by: {{session.user.name}}</p>
-
+</div>
     <button type="submit" class="btn-green-main">Add new spot</button>
 
   </div>
