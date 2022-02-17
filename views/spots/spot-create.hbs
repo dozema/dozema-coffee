@@ -25,16 +25,9 @@
         <option value="€€€">€€€</option>
       </select>
     </div>
-    
-    <div class="select-field">
-      <p> Created by:</p>
-      <select name="author" class="select-field-content">
-        <option value="{{session.user.name._id}}">{{session.user.name}}</option>
-      </select>
-    </div>
 
     <div class="select-field">
-     <p>Details</p>
+      <p>Select details: </p>
     {{#each details}}
     <div>
       <input type="checkbox" id={{this}} name="details" value={{this}}>
@@ -56,6 +49,9 @@
       <p>Upload an image</p>
       <input type="file" name="spotPicture" placeholder="upload picture" />
     </div>
+
+    <div class="select-field">
+      <p> Created by: {{session.user.name}}</p>
 
     <button type="submit" class="btn-green-main">Add new spot</button>
 
