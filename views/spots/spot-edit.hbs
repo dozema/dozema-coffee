@@ -14,22 +14,6 @@
 
     <div class="select-field">
       <p>Price class:</p>
-      {{#each averagePrice}}
-        <div>
-          <select
-            name="averagePrice"
-            id={{this}}
-            value="{{this}}"
-            class="select-field-content"
-          >
-            <option for={{this}}>{{this}}</option>
-          </select>
-        </div>
-      {{/each}}
-    </div>
-
-    <div class="select-field">
-      <p>Price class:</p>
       <select name="averagePrice" class="select-field-content">
         <option value="€">€</option>
         <option value="€€">€€</option>
