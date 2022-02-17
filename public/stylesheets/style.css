@@ -12,7 +12,7 @@ body {
   font-size: 13px;
   background-color: white;
   font-family: "Work Sans", Verdana, Geneva, Tahoma, sans-serif;
-  color: rgb(45, 45, 45);
+  color: rgb(59, 59, 59);
   padding-top: 5%;
   padding-bottom: 5%;
   z-index: 3;
@@ -20,6 +20,7 @@ body {
 
 a {
   color: #634258;
+  text-decoration: none;
 }
 
 a:hover {

@@ -1,44 +1,66 @@
-<h2>User profile</h2>
+<div class="container spot-details profile-details">
+  <div class="row align-items-start justify-content-between">
 
-<section class="user-profile">
-  <h2>Hello, {{user.name}}</h2>
+    <div class="col-md-6">
 
-  <hr />
-  {{#if user.imageUrl}}
-    <img class="myprofile-picture" src="{{user.imageUrl}}" alt="user picture" />
-  {{else}}
-    <img class="myprofile-picture"
-      src="https://i.ebayimg.com/images/g/KIYAAOSwVblcbUkB/s-l400.jpg"
-      alt="no image"
-    />
-  {{/if}}
-  {{!-- <img src="{{user.imageUrl}}" alt="{{this.title}}" /> --}}
+      <h1>Hello {{user.name}}!</h1>
+      <h6> - your profile -</h6>
 
-  <section class="my-spots">
-    <h3>Spots created:</h3>
-    <ul>
-      {{#each spots}}
-        <a href="/spots/{{this._id}}/spot-details"><li>{{this.title}}</li></a>
-      {{/each}}
-    </ul>
-  </section>
-  <hr />
+      <div class="thin-line"> </div>
 
-  <section class="my-fav-spots">
-    <h3>Spots I like:</h3>
-    <ul>
-      {{#each user.favoriteSpots}}
-        <a href="/spots/{{this._id}}/spot-details"><li>{{this.title}}</li></a>
-      {{/each}}
-    </ul>
-  </section>
+      <div class="fav-spots">
+        <h4>My favorite spots:</h4>
+        <ul>
+          {{#each user.favoriteSpots}}
+            <a href="/spots/{{this._id}}/spot-details"><li
+              >{{this.title}}</li></a>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="thin-line"> </div>
+      <div class="created-spots">
+        <h4>My added spots:</h4>
+        <ul>
+          {{#each spots}}
+            <a href="/spots/{{this._id}}/spot-details"><li
+              >{{this.title}}</li></a>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
 
-  <button class="button-primary"><a href="/users/{{user._id}}/edit">Edit profile</a></button>
-
-  <form action="/users/{{user._id}}/delete" method="POST">
-    <button class="button-secondary">
-      Delete profile
-    </button>
-  </form>
-
-</section>
+    <div class="col-md-5">
+      <div>
+        {{#if user.imageUrl}}
+          <img
+            class="myprofile-picture"
+            src="{{user.imageUrl}}"
+            alt="user picture"
+          />
+        {{else}}
+          <img
+            class="myprofile-picture"
+            src="https://i.ebayimg.com/images/g/KIYAAOSwVblcbUkB/s-l400.jpg"
+            alt="no image"
+          />
+        {{/if}}
+        </div>
+        <br /><br />
+<div class="user-cred">
+        <p>username: {{user.name}}</p>
+        <p>email: {{user.email}}</p>
+      </div>
+      <div>
+        <button class="button-edit button-fixed-size"><a
+            href="/users/{{user._id}}/edit"
+          >Edit profile</a></button>
+      </div>
+      <br />
+      <form action="/users/{{user._id}}/delete" method="POST">
+        <button class="button-delete button-fixed-size">
+          Delete profile
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
