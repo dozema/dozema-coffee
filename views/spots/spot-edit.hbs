@@ -3,17 +3,20 @@
 <form action="/spots/{{_id}}/edit" method="post">
   <label>
     Title:
-    <input type="text" name="title" value="{{title}}" />
+    <input type="text" name="title" value="{{spot.title}}" />
   </label>
 
-  <label>
-    Details:
-    <input type="text" name="details" value="{{details}}" />
-  </label>
+    <div class="select-field">
+    {{#each details}}
+    <div>
+      <input type="checkbox" id={{this}} name="details" value={{this}}>
+      <label for={{this}}>{{this}}</label>
+    </div>
+    {{/each}}
 
   <label>
     Description:
-    <textarea name="description" cols="30" rows="4">{{description}} </textarea>
+    <textarea name="description" cols="30" rows="4">{{spot.description}} </textarea>
   </label>
   <label> Created By:
   <select name="author">
@@ -22,19 +25,19 @@
   <label>
   <label>
     Rating:
-    <input type="number" name="rating" min="1" max="5" value="{{rating}}" />
+    <input type="number" name="rating" min="1" max="5" value="{{spot.rating}}" />
   </label>
   <label>
     Address:
-    <input type="text" name="address" value="{{address}}" />
+    <input type="text" name="address" value="{{spot.address}}" />
   </label>
   <label>
     Average price:
-    <input type="number" name="averagePrice" value="{{averagePrice}}" />
+    <input type="number" name="averagePrice" value="{{spot.averagePrice}}" />
   </label>
   <label>
     Opening Hours:
-    <input type="text" name="openingHours" value="{{openingHours}}" />
+    <input type="text" name="openingHours" value="{{spot.openingHours}}" />
   </label>
 
 

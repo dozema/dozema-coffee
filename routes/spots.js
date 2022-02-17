@@ -66,10 +66,11 @@ router.get("/:spotId/spot-details", (req, res, next) => {
 });
 
 router.get("/:spotId/edit", isLoggedIn, isCreator, (req, res, next) => {
+  let details = Spot.schema.path("details").caster.enumValues
   Spot.findById(req.params.spotId)
     .populate("creator")
-    .then((spotToEdit) => {
-      res.render("spots/spot-edit", spotToEdit);
+    .then((spot) => {
+      res.render("spots/spot-edit", {spot, details: details});
     })
     .catch((err) => {
       console.log("Error getting spotdetails from DB...", err);
