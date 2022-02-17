@@ -12,12 +12,7 @@
         />
       {{/if}}
       <h1>{{this.title}}</h1>
-      {{#each this.details}}
-      {{#if this}}
-      <li>{{@key}}</li>
-      {{/if}}
-      {{/each}}
-      <p>{{this.rating}}</p>
+     <p>{{this.description}}</p>
       <a href="/spots/{{this._id}}/spot-details">More details</a>
     </section>
 
