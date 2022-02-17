@@ -16,6 +16,12 @@
         required
       />
     </div>
+
+     <div class="input-field">
+      <p>Address</p>
+      <input type="text" name="address" placeholder="Street and city" />
+    </div>
+
     <div class="input-field">
       <p>Opening hours</p>
       <input type="text" name="openingHours" placeholder="e.g. 10:00 - 20:30" />
@@ -56,16 +62,9 @@
       <input type="file" name="spotPicture" placeholder="upload picture" />
     </div>
 
+    <button type="submit" class="btn-green-main">Add new spot</button>
     <div class="select-field">
       <p> Created by: {{session.user.name}}</p>
     </div>
-
-    <div class="input-field">
-      <p>Add the address</p>
-      <input type="text" name="address" placeholder="address here" />
-    </div>
-
-    <button type="submit" class="btn-green-main">Add new spot</button>
-
   </div>
 </form>
