@@ -6,7 +6,6 @@ const User = require("../models/User.model");
 const isCreator = require("../middleware/isCreator");
 const req = require("express/lib/request");
 const fileUploader = require("../config/cloudinary.config");
-const Details = require("../models/Details.model");
 
 router.get("/", (req, res, next) => {
   Spot.find()
