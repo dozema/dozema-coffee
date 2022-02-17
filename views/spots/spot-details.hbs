@@ -12,9 +12,11 @@
   {{/if}}
 
   <h1>{{title}}</h1>
+  <ul>
   {{#each this.details}}
-  <li>{{this}}</li> 
+  <li class="checkbox">{{this}}</li> 
   {{/each}}
+  </ul>
 
   <p>Description: {{description}}</p>
   <p>Created by: {{creator.name}}</p>
