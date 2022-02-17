@@ -36,9 +36,14 @@ button {
   border: none;
 }
 
-.map {
+.map-spot-details {
   height: 300px;
   width: 300px;
+}
+
+.map-index {
+  height: 500px;
+  width: 500px;
 }
 
 .img-spot {
@@ -245,7 +250,7 @@ form {
 .button-card {
   width: 100%;
   border: none;
-  padding: 12px;
+  padding: 10px;
   text-transform: uppercase;
   background: none;
   color: #044343;
@@ -265,9 +270,20 @@ form {
   margin-top: 20px;
 }
 
-.see-all-spots a {
-  font-size: 2em;
+.button-see-more {
+  width: 100%;
+  border: none;
+  padding: 7px;
+  text-transform: uppercase;
+  background: none;
   color: #044343;
+  border: #044343 1px solid;
+  border-radius: 4px;
+  outline: 0;
+}
+
+.see-all-spots a {
+  font-size: 0.9em;
 }
 
 .show-map {
