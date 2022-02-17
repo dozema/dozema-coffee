@@ -18,6 +18,18 @@ router.get("/", (req, res, next) => {
     });
 });
 
+router.get("/locations", (req, res, next) => {
+  Spot.find()
+    .populate("creator")
+    .then((spotsFromDB) => {
+      const spotsLocations = spotsFromDB.map((spot) => spot.location);
+      res.json({ locations: spotsLocations });
+    })
+    .catch((err) => {
+      console.log("Error getting spots from DB...", err);
+    });
+});
+
 router.get("/create", isLoggedIn, (req, res, next) => {
   res.render("spots/spot-create");
 });
@@ -121,7 +133,7 @@ router.get("/:spotId/favorite", isLoggedIn, (req, res, next) => {
   const spotId = req.params.spotId;
 
   User.findByIdAndUpdate(req.session.user._id, {
-    $addToSet: { favoriteSpots: spotId, new: true, upsert: true}
+    $addToSet: { favoriteSpots: spotId, new: true, upsert: true },
   })
     .exec()
     .then(() => {
