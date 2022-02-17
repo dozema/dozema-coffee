@@ -1,29 +1,35 @@
-<h2>Edit your profile</h2>
 
 <form
   action="/users/{{user._id}}/edit"
   method="post"
   enctype="multipart/form-data"
+  class="form-card-create"
 >
+<h3>Edit your profile</h3>
 
-  <label>
-    Name:
-    <input type="text" name="name" value="{{user.name}}" />
-  </label>
-  <label>
-    E-Mail:
-    <input type="email" name="email" value="{{user.email}}" />
-  </label>
+<div class="form-content">
 
-  <label>
-    Password:
-    <input type="password" name="password" value="{{session.user.password}}" />
-  </label>
-  <label>
-    Picture:
-    <input type="file" name="userPicture" />
-    <img src="{{user.imageUrl}}" />
-  </label>
+    <div class="input-field">
+      <p>Username</p>
+      <input type="text" name="name" value="{{user.name}}" />
+    </div>
 
-  <button type="submit">Save changes</button>
+ <div class="input-field">
+      <p>E-Mail</p>
+      <input type="email" name="email" value="{{user.email}}" />
+    </div>
+  
+ <div class="input-field">
+      <p>Change password</p>
+      <input type="password" name="password" value="{{session.user.password}}" placeholder="****"/>
+    </div>
+
+   <div class="input-field">
+      <p>Upload or change image</p>
+      <input type="file" name="userPicture" placeholder="upload picture" />
+      <img src="{{user.imageUrl}}" />
+    </div>
+
+  <button type="submit" class="btn-green-main">Save changes</button>
+  </div>
 </form>
