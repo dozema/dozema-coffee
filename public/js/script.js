@@ -8,28 +8,81 @@ document.addEventListener(
 
 // Map for spot-Details
 window.addEventListener("load", async () => {
-  const locations = await window.fetch("/spots/locations");
-  const results = await locations.json();
-  console.log("locations", results.locations);
-  const location = {
-    lat: results.locations[0].latitude,
-    lng: results.locations[0].longitude,
-  };
-  // Initialize the map
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 13,
-    center: location,
-  });
+  const MAP_ELEMENT = document.getElementById("map");
+  const VIEW_HAS_MAP_ELEMENT = MAP_ELEMENT;
+  console.log("this is goodle");
 
-  // Add a marker for Spot
-  const marker = new google.maps.Marker({
-    position: {
-      lat: results.locations[0].latitude,
-      lng: results.locations[0].longitude,
+  new google.maps.Geocoder().geocode(
+    {
+      address: "dublin",
     },
-    map: map,
-    title: `what goes here?`,
-  });
+    function (results) {
+      console.log(results);
+      // console.log(results[0].geometry.location); //LatLng
+    }
+  );
+  if (VIEW_HAS_MAP_ELEMENT) {
+    // Fetch locations of spots
+    const locations = await window.fetch("/spots/locations");
+    const results = await locations.json();
+
+    const SPOT_DETAILS = "spot-details";
+    const IS_SPOT_DETAILS_VIEW =
+      window.location.pathname.includes(SPOT_DETAILS);
+    const IS_ROOT_VIEW = window.location.pathname === "/";
+
+    if (IS_ROOT_VIEW) {
+      // Initialize the map
+      const map = new google.maps.Map(MAP_ELEMENT, {
+        zoom: 3,
+        center: { lat: 53.0, lng: 9.0 },
+      });
+      // Set markers for each location
+      results.locations.forEach(
+        (location) =>
+          new google.maps.Marker({
+            position: {
+              lat: location.latitude,
+              lng: location.longitude,
+            },
+            map: map,
+          })
+      );
+    }
+
+    if (IS_SPOT_DETAILS_VIEW) {
+      const spotId = window.location.pathname.split("/")[2];
+      const spotLocation = results.locations.find(
+        (location) => location.id === spotId
+      );
+
+      // Initialize the map
+      const map = new google.maps.Map(MAP_ELEMENT, {
+        zoom: 10,
+        center: { lat: spotLocation.latitude, lng: spotLocation.longitude },
+      });
+
+      new google.maps.Marker({
+        position: {
+          lat: spotLocation.latitude,
+          lng: spotLocation.longitude,
+        },
+        map: map,
+      });
+    }
+
+    // Set markers for each location
+    // results.locations.forEach(
+    //   (location) =>
+    //     new google.maps.Marker({
+    //       position: {
+    //         lat: location.latitude,
+    //         lng: location.longitude,
+    //       },
+    //       map: map,
+    //     })
+    // );
+  }
 });
 
 // Map for create spot
@@ -70,8 +123,6 @@ window.addEventListener("load", async () => {
 //   } else {
 //     console.log("Browser does not support geolocation.");
 //   }
-
-
 
 // google.maps.event.addListener(map, "click", (event) => {
 //   addMarker(event.latLng, map);
