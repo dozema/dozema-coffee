@@ -1,15 +1,16 @@
 <h1>Spot-edit</h1>
 
-<form action="/spots/{{_id}}/edit" method="post">
+<form action="/spots/{{spot._id}}/edit" method="post">
   <label>
     Title:
     <input type="text" name="title" value="{{spot.title}}" />
   </label>
 
     <div class="select-field">
+
     {{#each details}}
     <div>
-      <input type="checkbox" id={{this}} name="details" value={{this}}>
+      <input type="checkbox" id={{this}} name="details" value="{{this}}"  >
       <label for={{this}}>{{this}}</label>
     </div>
     {{/each}}
@@ -39,8 +40,6 @@
     Opening Hours:
     <input type="text" name="openingHours" value="{{spot.openingHours}}" />
   </label>
-
-
 
   <button type="submit"> Change </button>
 </form>

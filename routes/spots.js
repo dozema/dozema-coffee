@@ -103,6 +103,7 @@ router.post("/:spotId/edit", isLoggedIn, isCreator, (req, res, next) => {
     // address: req.body.address,
     averagePrice: req.body.averagePrice,
     openingHours: req.body.openingHours,
+    details: req.body.details
   };
   Spot.findByIdAndUpdate(spotId, spot)
     .then(() => res.redirect(`/spots/${spotId}/spot-details`))
