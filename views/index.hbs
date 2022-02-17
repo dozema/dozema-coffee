@@ -6,7 +6,7 @@
   <div class="spots-listing">
     <section>
       <h3>Find your favorite spot</h3>
-      <div class="col-container">
+      <div class="container">
         <div class="row">
 
           {{#each spots}}
@@ -16,14 +16,14 @@
                 {{#if imageUrl}}
                   <img
                     src="{{imageUrl}}"
-                    class="card-img-top"
-                    style="width: 3rem;"
+                    class="img-spot-card"
                     alt="{{this.title}}"
                   />
                 {{else}}
                   <img
                     src="https://img.freepik.com/free-vector/cute-pug-dog-drink-coffee-cup-cartoon-animal-logo-coffee-illustration_295036-956.jpg"
                     alt="no image"
+                    class="img-spot-card"
                   />
                 {{/if}}
 
@@ -55,6 +55,6 @@
       <a href="/spots/create"  class="call-to-action-button">Add a spot!</a>
     </div>
   </section>
-  
+
   <div id="map" class="map">Location</div>
 </div>
