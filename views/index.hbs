@@ -30,11 +30,6 @@
                 <div class="card-body" >
                   <h5 class="card-title">{{this.title}}</h5>
                   <p class="card-text" style="height: 3rem;">{{this.description}}</p>
-                  <ul class="list-group list-group-flush" style="height: 3rem;">
-                     {{#each this.details}}
-                    <li class="list-group-item">{{this}}</li>
-                       {{/each}}
-                  </ul>
                   <a
                     href="/spots/{{this._id}}/spot-details"
                     class="btn button-card"
@@ -53,7 +48,7 @@
   <section>
     <div class="call-to-action">
     <div>
-    <h3>Do you know a nice spot for working? 👩🏼‍💻👩🏻‍💻</h3>
+    <h3>Do you know a nice spot for working? 👩🏼‍💻 ☕️ 👨🏾‍💻🥧 </h3>
     </div>
 
     <div>
@@ -61,4 +56,5 @@
     </div>
   </section>
   </div>
+  
   <div id="map" class="map">Location</div>
