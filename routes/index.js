@@ -6,7 +6,7 @@ const router = require("express").Router();
 router.get("/", (req, res, next) => {
   Spot.find()
     .then((spotsFromDB) => {
-      res.render("index", { spots: spotsFromDB });
+      res.render("index", { spots: spotsFromDB.slice(0,3) });
     })
     .catch((err) => {
       console.log("Error getting spots from DB...", err);
