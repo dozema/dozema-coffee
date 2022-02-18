@@ -24,7 +24,7 @@ a {
 }
 
 a:hover {
-  color:#ad3184
+  color: #ad3184;
 }
 
 h1 {
@@ -226,18 +226,22 @@ form {
 
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 40px;
 }
 
 .col-3 {
   flex: 0 0 auto;
-  width: 25%;
+  width: 30%;
   height: 350px;
 }
 
 .card-bod {
+  align-items: center;
   padding: 1rem 1rem;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .img-spot-card {
@@ -287,7 +291,7 @@ form {
 }
 
 .show-map {
-  height: 400px;
+  height: 500px;
   background-color: #f6f0e9;
   justify-content: center;
   display: flex;
