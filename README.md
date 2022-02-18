@@ -10,6 +10,8 @@ Prerequsiites:
 
 npm install
 
+npm install axios
+
 ---
 
 Installaion:
