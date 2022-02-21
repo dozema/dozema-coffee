@@ -1,4 +1,4 @@
-Getting Started:
+# Getting Started:
 
 This is a project to check working spots around the world.
 You can register and then be able to add your own spots, edit, or delete them.
