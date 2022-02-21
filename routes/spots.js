@@ -4,7 +4,6 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const Spot = require("../models/Spot.model");
 const User = require("../models/User.model");
 const isCreator = require("../middleware/isCreator");
-const req = require("express/lib/request");
 const fileUploader = require("../config/cloudinary.config");
 const axios = require("axios");
 
@@ -35,6 +34,7 @@ router.get("/locations", (req, res, next) => {
 });
 
 router.get("/create", isLoggedIn, (req, res, next) => {
+  // Getting all enumValues from Spotmodel
   let details = Spot.schema.path("details").caster.enumValues;
   res.render("spots/spot-create", { details: details });
 });
@@ -49,11 +49,6 @@ router.post(
       title: req.body.title,
       description: req.body.description,
       creator: req.session.user,
-      // rating: req.body.rating,
-      // location: {
-      //   type: "Point",
-      //   coordinates: [req.body.longitude, req.body.latitude],
-      // },
       averagePrice: req.body.averagePrice,
       openingHours: req.body.openingHours,
       imageUrl: req.file?.path,
@@ -89,7 +84,6 @@ router.post(
 router.get("/:spotId/spot-details", (req, res, next) => {
   Spot.findById(req.params.spotId)
     .populate("creator")
-
     .then((spotDetails) => {
       res.render("spots/spot-details", spotDetails);
     })
@@ -103,6 +97,7 @@ router.get("/:spotId/edit", isLoggedIn, isCreator, (req, res, next) => {
   Spot.findById(req.params.spotId)
     .populate("creator")
     .then((spot) => {
+      // Filter out already selected details
       let newDetails = details.filter(
         (detail) => !spot.details.includes(detail)
       );
@@ -120,8 +115,6 @@ router.post("/:spotId/edit", isLoggedIn, isCreator, (req, res, next) => {
     details: req.body.details,
     description: req.body.description,
     creator: req.session.user,
-    // rating: req.body.rating,
-    // address: req.body.address,
     averagePrice: req.body.averagePrice,
     openingHours: req.body.openingHours,
     details: req.body.details,
@@ -143,7 +136,6 @@ router.post("/:spotId/delete", isLoggedIn, isCreator, (req, res, next) => {
     });
 });
 
-//===== Create get.route for user favorite spots
 router.get("/:spotId/favorite", isLoggedIn, (req, res, next) => {
   const spotId = req.params.spotId;
 

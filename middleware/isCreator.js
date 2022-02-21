@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
   Spot.findById(req.params.spotId)
     .populate("creator")
     .then((spotFromDB) => {
-      if (spotFromDB.creator.email !== req.session.user.email) {
+      if (spotFromDB.creator._id.toString() !== req.session.user._id.toString()) {
         res.render("error");
         return;
       }
