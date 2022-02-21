@@ -6,6 +6,17 @@ You can also mark other people's spots as your favourites!
 
 ---
 
+Environment variables:
+
+MONGODB_URI
+SESS_SECRET
+
+CLOUDINARY_NAME
+CLOUDINARY_KEY
+CLOUDINARY_SECRET
+
+---
+
 Prerequsiites:
 
 npm install
@@ -41,6 +52,12 @@ Create spots.
 Add images.
 Edit and delete your spots.
 Check the spots your created in your profile.
+
+---
+
+Link to deployment:
+
+https://dozema-coffee.herokuapp.com/
 
 ---
 
